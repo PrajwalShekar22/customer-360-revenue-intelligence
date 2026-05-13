@@ -1,0 +1,6 @@
+action_priority,customer_count,total_revenue,avg_churn_probability,recommended_strategy
+Priority 1,1842,864803.76,0.7893,Immediate win-back outreach. Personal calls + discount codes for Critical/At-Risk customers.
+Priority 2,616,1355477.31,0.4511,Retention priority. Protect high-value / Cannot Lose relationships with dedicated CSM touch.
+Priority 3,1436,1107674.79,0.5884,Growth nurture. Drive repeat purchase via targeted recommendations and onboarding flows.
+Priority 4,1909,13937368.78,0.219,"Loyalty & upsell. Reward Champions with early access, premium bundles, and referral programs."
+Priority 5,75,109479.62,0.3357,Automated nurture. Low-cost email drip; monitor for re-engagement signals.

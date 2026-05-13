@@ -1,0 +1,116 @@
+========================================================================
+  STEP 11 — CUSTOMER HEALTH SCORE SUMMARY
+  Customer 360 Revenue Intelligence Platform
+========================================================================
+
+  Input files:
+    customer_features  : 5,878 customers
+    rfm_segments       : 5,878 customers
+    churn_predictions  : 5,041 customers
+
+  Final customer_360 table:
+    Total rows         : 5,878
+    Total columns      : 46
+    Model scored       : 5,041
+    Not Scored         : 837
+
+  Health score statistics:
+    Min                : 13.49
+    Max                : 99.99
+    Mean               : 55.18
+    Median             : 53.73
+
+------------------------------------------------------------------------
+  HEALTH TIER DISTRIBUTION
+------------------------------------------------------------------------
+  Tier           Customers       %
+  ------------  ----------  ------
+  Excellent          1,099   18.7%
+  Healthy            1,374   23.4%
+  Watchlist          1,643   27.9%
+  At Risk            1,401   23.8%
+  Critical             361    6.1%
+
+------------------------------------------------------------------------
+  REVENUE BY HEALTH TIER
+------------------------------------------------------------------------
+  Tier                 Revenue   Rev %     Avg Rev
+  ------------  --------------  ------  ----------
+  Excellent     £12,284,694.20   70.7%  £11,178.07
+  Healthy       £ 3,164,487.92   18.2%  £ 2,303.12
+  Watchlist     £ 1,445,012.30    8.3%  £   879.50
+  At Risk       £   431,376.42    2.5%  £   307.91
+  Critical      £    49,233.42    0.3%  £   136.38
+
+------------------------------------------------------------------------
+  CUSTOMER VALUE TIER DISTRIBUTION
+------------------------------------------------------------------------
+  Top 10% Value    : 588 (10.0%)
+  High Value       : 1,176 (20.0%)
+  Mid Value        : 2,351 (40.0%)
+  Low Value        : 1,763 (30.0%)
+
+------------------------------------------------------------------------
+  ACTION PRIORITY DISTRIBUTION
+------------------------------------------------------------------------
+  Priority 1  |  1,842 customers  |  £864,803.76
+  Priority 2  |  616 customers  |  £1,355,477.31
+  Priority 3  |  1,436 customers  |  £1,107,674.79
+  Priority 4  |  1,909 customers  |  £13,937,368.78
+  Priority 5  |  75 customers  |  £109,479.62
+
+------------------------------------------------------------------------
+  KEY FLAGS
+------------------------------------------------------------------------
+  Retention target customers : 2,952
+  VIP customers              : 1,511
+
+------------------------------------------------------------------------
+  TOP 10 CUSTOMERS BY TOTAL REVENUE
+------------------------------------------------------------------------
+  Customer 18102  |  Champions             |  £580,987.04  |  Health: 99.5 (Excellent)
+  Customer 14646  |  Champions             |  £528,602.52  |  Health: 100.0 (Excellent)
+  Customer 14156  |  Champions             |  £313,437.62  |  Health: 100.0 (Excellent)
+  Customer 14911  |  Champions             |  £291,420.81  |  Health: 100.0 (Excellent)
+  Customer 17450  |  Champions             |  £244,784.25  |  Health: 95.7 (Excellent)
+  Customer 13694  |  Champions             |  £195,640.69  |  Health: 99.9 (Excellent)
+  Customer 17511  |  Champions             |  £172,132.87  |  Health: 99.7 (Excellent)
+  Customer 16446  |  Big Spenders          |  £168,472.50  |  Health: 71.8 (Healthy)
+  Customer 16684  |  Champions             |  £147,142.77  |  Health: 98.6 (Excellent)
+  Customer 12415  |  Champions             |  £144,458.37  |  Health: 95.2 (Excellent)
+
+------------------------------------------------------------------------
+  TOP 10 HIGHEST-RISK CUSTOMERS BY CHURN PROBABILITY
+------------------------------------------------------------------------
+  Customer 12918  |  Big Spenders          |  Churn prob: 1.000  |  Critical Risk
+  Customer 15098  |  Big Spenders          |  Churn prob: 1.000  |  Critical Risk
+  Customer 15760  |  Big Spenders          |  Churn prob: 1.000  |  Critical Risk
+  Customer 12737  |  Big Spenders          |  Churn prob: 1.000  |  Critical Risk
+  Customer 15202  |  Big Spenders          |  Churn prob: 1.000  |  Critical Risk
+  Customer 15749  |  Big Spenders          |  Churn prob: 0.998  |  Critical Risk
+  Customer 14255  |  Hibernating           |  Churn prob: 0.997  |  Critical Risk
+  Customer 13205  |  Hibernating           |  Churn prob: 0.984  |  Critical Risk
+  Customer 12636  |  Hibernating           |  Churn prob: 0.984  |  Critical Risk
+  Customer 14802  |  Hibernating           |  Churn prob: 0.980  |  Critical Risk
+
+------------------------------------------------------------------------
+  BUSINESS INTERPRETATION
+------------------------------------------------------------------------
+  • 1,762 customers in Critical/At Risk tiers need immediate retention action.
+  • 1,643 Watchlist customers are growth opportunities — targeted nurture can move them to Healthy.
+  • 2,473 Excellent/Healthy customers are upsell/loyalty candidates — protect and expand.
+  • One-time buyers churn at 75.5%: prioritise second-purchase incentives for low-frequency customers.
+  • Champions (1,297 customers) drive the majority of revenue — monitor for any recency drift.
+
+------------------------------------------------------------------------
+  LIMITATIONS
+------------------------------------------------------------------------
+  1. Churn predictions exist for 5,041 of 5,878 customers (observation-window only).
+  2. 837 Not Scored customers are retained in Customer 360 for dashboard completeness; churn_component uses neutral midpoint (15/30).
+  3. Customer health score is a business scoring framework, not a causal metric.
+  4. Health tier boundaries (20/40/60/80) are rule-based; consider re-calibrating with domain expert input.
+  5. Dataset covers Dec 2009 – Dec 2011. Scores must be recalculated on fresh data before production use.
+
+========================================================================
+  STEP 11 customer health score completed successfully.
+========================================================================
