@@ -1,0 +1,82 @@
+=======================================================
+  STEP 5 — EDA SUMMARY
+  Customer 360 Revenue Intelligence Platform
+=======================================================
+
+  Shape                 : 779,425 rows x 13 columns
+  Columns               : ['invoice_id', 'stock_code', 'description', 'quantity', 'invoice_date', 'unit_price', 'customer_id', 'country', 'revenue', 'invoice_year', 'invoice_month', 'invoice_yearmonth', 'invoice_date_only']
+
+  Date range            : 2009-12-01 -> 2011-12-09
+  Unique customers      : 5,878
+  Unique invoices       : 36,969
+  Unique stock codes    : 4,631
+  Unique countries      : 41
+
+  Total revenue         : £17,374,804.27
+  Total quantity sold   : 10,513,952
+  Total invoices        : 36,969
+  Avg order value       : £469.98
+  Median order value    : £303.04
+
+  Peak revenue month    : 2010-11  (£1,166,460.02)
+  Lowest revenue month  : 2011-02  (£446,084.92)
+
+  Peak active customers : 1,664  (2011-11)
+  Avg monthly customers : 1,024
+
+  Top 10 countries by revenue:
+    United Kingdom            £14,389,234.92
+    EIRE                      £  616,570.54
+    Netherlands               £  554,038.09
+    Germany                   £  425,019.71
+    France                    £  348,768.96
+    Australia                 £  169,283.46
+    Spain                     £  108,332.49
+    Switzerland               £  100,061.94
+    Sweden                    £   91,515.82
+    Denmark                   £   68,580.69
+
+  Top 10 products by revenue:
+    [22423] REGENCY CAKESTAND 3 TIER                 £277,656.25
+    [85123A] WHITE HANGING HEART T-LIGHT HOLDER       £247,048.01
+    [23843] PAPER CRAFT , LITTLE BIRDIE              £168,469.60
+    [M] Manual                                   £151,777.67
+    [85099B] JUMBO BAG RED RETROSPOT                  £134,307.44
+    [POST] POSTAGE                                  £124,648.04
+    [84879] ASSORTED COLOUR BIRD ORNAMENT            £124,351.86
+    [47566] PARTY BUNTING                            £103,283.38
+    [23166] MEDIUM CERAMIC TOP STORAGE JAR           £ 81,416.73
+    [22086] PAPER CHAIN KIT 50'S CHRISTMAS           £ 76,598.18
+
+  Top 10 customers by revenue:
+    Customer 18102    £  580,987.04
+    Customer 14646    £  528,602.52
+    Customer 14156    £  313,437.62
+    Customer 14911    £  291,420.81
+    Customer 17450    £  244,784.25
+    Customer 13694    £  195,640.69
+    Customer 17511    £  172,132.87
+    Customer 16446    £  168,472.50
+    Customer 16684    £  147,142.77
+    Customer 12415    £  144,458.37
+
+  Customer order frequency:
+    Min orders per customer   : 1
+    Max orders per customer   : 398
+    Median orders per customer: 3.0
+    Mean orders per customer  : 6.29
+    One-time buyers           : 1,623 (27.6%)
+    Repeat buyers             : 4,255 (72.4%)
+
+  Customer revenue distribution:
+    Min revenue per customer  : £2.95
+    Max revenue per customer  : £580,987.04
+    Median rev per customer   : £867.74
+    Mean rev per customer     : £2,955.90
+
+  Repeat purchase behavior:
+    Total customers           : 5,878
+    Repeat buyers             : 4,255 (72.4%)
+    One-time buyers           : 1,623 (27.6%)
+    Revenue from repeat buyers: £16,814,531.71 (96.8% of total)
+    Revenue from one-timers   : £560,272.56 (3.2% of total)
