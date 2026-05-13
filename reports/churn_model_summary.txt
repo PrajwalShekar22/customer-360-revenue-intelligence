@@ -1,0 +1,120 @@
+================================================================
+  STEP 9 — CHURN MODEL TRAINING SUMMARY
+  Customer 360 Revenue Intelligence Platform
+================================================================
+
+  Input file        : data/processed/churn_model_base.parquet
+  Dataset shape     : (5041, 25)
+  Target (churned)  : 1=2,512  0=2,529  rate=49.8%
+
+  Train rows        : 4,032
+  Test rows         : 1,009
+
+  Feature columns used (20):
+    obs_tenure_days
+    obs_recency_days
+    obs_total_invoices
+    obs_total_line_items
+    obs_total_quantity
+    obs_unique_products
+    obs_unique_purchase_days
+    obs_total_revenue
+    obs_average_invoice_value
+    obs_average_line_revenue
+    obs_average_unit_price
+    obs_purchase_frequency_per_month
+    obs_products_per_invoice
+    obs_quantity_per_invoice
+    obs_country_mode
+    obs_avg_days_between_purchases
+    obs_r_score
+    obs_f_score
+    obs_m_score
+    obs_rfm_total_score
+
+  Excluded columns  :
+    churned
+    customer_health_score
+    customer_id
+    obs_first_purchase_date
+    obs_last_purchase_date
+    purchased_in_prediction
+    recency_days
+    rfm_segment
+    total_invoices
+    total_revenue
+
+  Leakage prevention: confirmed — all features are obs_* prefixed. ✓
+
+────────────────────────────────────────────────────────────────
+  MODEL METRICS TABLE
+────────────────────────────────────────────────────────────────
+  Model                     Acc   Prec    Rec     F1  ROC-AUC  AvgPrec
+  --------------------------------------------------------------------
+  Logistic Regression    0.7265 0.7179 0.7435 0.7305   0.8148   0.8004
+  Random Forest          0.7294 0.7076 0.7793 0.7417   0.8114   0.7887
+  XGBoost                0.7215 0.7063 0.7555 0.7301   0.7978   0.7625
+
+  Best model selected: Logistic Regression
+
+  Confusion matrix (Logistic Regression on test set):
+    True Negative  (retained, predicted retained) : 359
+    False Positive (retained, predicted churned)  : 147
+    False Negative (churned, predicted retained)  : 129
+    True Positive  (churned, predicted churned)   : 374
+
+────────────────────────────────────────────────────────────────
+  METRIC INTERPRETATION (Logistic Regression)
+────────────────────────────────────────────────────────────────
+  Accuracy  0.7265  — overall correct predictions
+  Precision 0.7179  — of customers predicted to churn,
+            71.8% actually churned (false alarm rate)
+  Recall    0.7435  — of customers who churned,
+            74.4% were correctly identified (catch rate)
+  F1        0.7305  — harmonic mean of precision/recall
+  ROC-AUC   0.8148  — probability model ranks churner above
+            non-churner; 1.0 is perfect, 0.5 is random
+
+────────────────────────────────────────────────────────────────
+  RISK TIER DISTRIBUTION
+────────────────────────────────────────────────────────────────
+  Low Risk       : 1,524  (30.2%)
+  Medium Risk    : 1,387  (27.5%)
+  High Risk      : 1,256  (24.9%)
+  Critical Risk  :  874  (17.3%)
+
+────────────────────────────────────────────────────────────────
+  TOP 10 FEATURE IMPORTANCES (coefficient_magnitude)
+────────────────────────────────────────────────────────────────
+  obs_country_mode_Denmark                      1.2589
+  obs_country_mode_Switzerland                  0.7223
+  obs_country_mode_Netherlands                  0.7083
+  obs_country_mode_USA                          0.7035
+  obs_unique_purchase_days                      0.6870
+  obs_country_mode_Greece                       0.6667
+  obs_country_mode_Spain                        0.6227
+  obs_country_mode_Canada                       0.6006
+  obs_average_unit_price                        0.5644
+  obs_country_mode_Brazil                       0.5218
+
+────────────────────────────────────────────────────────────────
+  BUSINESS INTERPRETATION
+────────────────────────────────────────────────────────────────
+  High churn probability means the model estimates the customer
+  is unlikely to return to purchase within the prediction window.
+  Risk tiers translate probabilities into actionable categories:
+    Critical Risk (>=0.80) : Immediate personalised outreach + discount
+    High Risk    (0.60-0.80): Win-back email campaign within 7 days
+    Medium Risk  (0.30-0.60): Monitor; trigger if no purchase in 30d
+    Low Risk     (<0.30)    : Business-as-usual; loyalty rewards
+
+────────────────────────────────────────────────────────────────
+  LIMITATIONS
+────────────────────────────────────────────────────────────────
+  1. Churn label is engineered from purchase-inactivity, not a real
+     company-provided churn flag.
+  2. Dataset is historical (Dec 2009 – Dec 2011). Customer behaviour
+     patterns may differ in newer periods.
+  3. Model should be retrained periodically on fresh transaction data.
+  4. 837 customers who only appeared post-cutoff are excluded; their
+     risk profile is unknown.

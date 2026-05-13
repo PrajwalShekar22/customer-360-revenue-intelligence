@@ -37,10 +37,9 @@ data/processed/*.csv
 data/processed/*.parquet
 data/processed/*.feather
 
-# ── Model artifacts ──────────────────────────────────────
+# ── Model artifacts (binaries excluded; JSON metadata tracked) ───────────────
 models/*.pkl
 models/*.joblib
-models/*.json
 
 # ── macOS system files ───────────────────────────────────
 .DS_Store

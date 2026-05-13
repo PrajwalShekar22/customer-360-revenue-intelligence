@@ -1,0 +1,48 @@
+{
+  "numeric": [
+    "obs_tenure_days",
+    "obs_recency_days",
+    "obs_total_invoices",
+    "obs_total_line_items",
+    "obs_total_quantity",
+    "obs_unique_products",
+    "obs_unique_purchase_days",
+    "obs_total_revenue",
+    "obs_average_invoice_value",
+    "obs_average_line_revenue",
+    "obs_average_unit_price",
+    "obs_purchase_frequency_per_month",
+    "obs_products_per_invoice",
+    "obs_quantity_per_invoice",
+    "obs_avg_days_between_purchases",
+    "obs_r_score",
+    "obs_f_score",
+    "obs_m_score",
+    "obs_rfm_total_score"
+  ],
+  "categorical": [
+    "obs_country_mode"
+  ],
+  "all_features": [
+    "obs_tenure_days",
+    "obs_recency_days",
+    "obs_total_invoices",
+    "obs_total_line_items",
+    "obs_total_quantity",
+    "obs_unique_products",
+    "obs_unique_purchase_days",
+    "obs_total_revenue",
+    "obs_average_invoice_value",
+    "obs_average_line_revenue",
+    "obs_average_unit_price",
+    "obs_purchase_frequency_per_month",
+    "obs_products_per_invoice",
+    "obs_quantity_per_invoice",
+    "obs_country_mode",
+    "obs_avg_days_between_purchases",
+    "obs_r_score",
+    "obs_f_score",
+    "obs_m_score",
+    "obs_rfm_total_score"
+  ]
+}
