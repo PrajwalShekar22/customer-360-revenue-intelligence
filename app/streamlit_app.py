@@ -243,7 +243,7 @@ st.divider()
 # ── Sidebar filters ───────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### Filters")
-    st.caption("Adjust filters to explore specific customer groups. All charts respond to your selection.")
+    st.caption("Leave a filter empty to include all options. Expand to narrow your selection.")
 
     all_health  = sorted(df_all["health_tier"].dropna().unique().tolist())
     all_rfm     = sorted(df_all["rfm_segment"].dropna().unique().tolist())
@@ -252,15 +252,69 @@ with st.sidebar:
     all_value   = sorted(df_all["customer_value_tier"].dropna().unique().tolist())
     all_country = sorted(df_all["country_mode"].dropna().unique().tolist())
 
-    sel_health  = st.multiselect("Health Tier",         all_health,  default=all_health)
-    sel_rfm     = st.multiselect("RFM Segment",         all_rfm,     default=all_rfm)
-    sel_churn   = st.multiselect("Churn Risk Tier",     all_churn,   default=all_churn)
-    sel_prio    = st.multiselect("Action Priority",     all_prio,    default=all_prio)
-    sel_value   = st.multiselect("Customer Value Tier", all_value,   default=all_value)
-    sel_country = st.multiselect("Country",             all_country, default=all_country)
+    # Reset button — clears all filter widget state
+    if st.button("Reset All Filters", use_container_width=True):
+        for k in list(st.session_state.keys()):
+            if k.startswith("flt_"):
+                del st.session_state[k]
+        st.rerun()
+
+    st.markdown("<div style='margin-top:4px'></div>", unsafe_allow_html=True)
+
+    with st.expander("Health Tier", expanded=False):
+        sel_health = st.multiselect(
+            "health_tier", all_health, default=[],
+            placeholder="All health tiers",
+            label_visibility="collapsed",
+            key="flt_health",
+        )
+
+    with st.expander("RFM Segment", expanded=False):
+        sel_rfm = st.multiselect(
+            "rfm_segment", all_rfm, default=[],
+            placeholder="All RFM segments",
+            label_visibility="collapsed",
+            key="flt_rfm",
+        )
+
+    with st.expander("Churn Risk Tier", expanded=False):
+        sel_churn = st.multiselect(
+            "churn_risk_tier", all_churn, default=[],
+            placeholder="All risk tiers",
+            label_visibility="collapsed",
+            key="flt_churn",
+        )
+
+    with st.expander("Action Priority", expanded=False):
+        sel_prio = st.multiselect(
+            "action_priority", all_prio, default=[],
+            placeholder="All priorities",
+            label_visibility="collapsed",
+            key="flt_prio",
+        )
+
+    with st.expander("Customer Value Tier", expanded=False):
+        sel_value = st.multiselect(
+            "customer_value_tier", all_value, default=[],
+            placeholder="All value tiers",
+            label_visibility="collapsed",
+            key="flt_value",
+        )
+
+    with st.expander("Country", expanded=False):
+        sel_country = st.multiselect(
+            "country", all_country, default=[],
+            placeholder="All countries",
+            label_visibility="collapsed",
+            key="flt_country",
+        )
+
+    st.divider()
 
     scored_opts = {"All Customers": "all", "Scored Only": 1, "Not Scored Only": 0}
-    sel_scored_label = st.selectbox("Model Scored Status", list(scored_opts.keys()))
+    sel_scored_label = st.selectbox(
+        "Model Scored Status", list(scored_opts.keys()), key="flt_scored"
+    )
     sel_scored = scored_opts[sel_scored_label]
 
     rev_min = float(df_all["total_revenue"].min())
@@ -270,20 +324,17 @@ with st.sidebar:
         min_value=rev_min, max_value=rev_max,
         value=(rev_min, rev_max),
         format="£%.0f",
+        key="flt_rev",
     )
 
     scored_mask = df_all["model_scored"] == 1
-    cp_min = float(df_all.loc[scored_mask, "churn_probability"].min())
-    cp_max = float(df_all.loc[scored_mask, "churn_probability"].max())
     cp_range = st.slider(
         "Churn Probability (scored only)",
         min_value=0.0, max_value=1.0,
         value=(0.0, 1.0),
         step=0.01,
+        key="flt_cp",
     )
-
-    st.divider()
-    st.caption("Clear all multiselects to reset filters, or refresh the page.")
 
 # ── Apply filters ─────────────────────────────────────────────────────────────
 df = df_all.copy()
