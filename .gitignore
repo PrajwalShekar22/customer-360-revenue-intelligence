@@ -64,6 +64,10 @@ reports/figures/*.html
 reports/screenshots/*.png
 reports/screenshots/*.jpg
 
+# ── Loose data files dropped in project root ─────────────
+*.xlsx
+*.zip
+
 # ── Secrets / credentials ────────────────────────────────
 *.env
 secrets.json
