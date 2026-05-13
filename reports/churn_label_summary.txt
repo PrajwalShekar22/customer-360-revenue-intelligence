@@ -1,0 +1,83 @@
+==============================================================
+  STEP 8 — CHURN LABEL SUMMARY
+  Customer 360 Revenue Intelligence Platform
+==============================================================
+
+  Dataset start date           : 2009-12-01
+  Dataset end date             : 2011-12-09
+  Cutoff date                  : 2011-07-01
+  Observation window           : 2009-12-01 → 2011-06-30
+  Prediction window            : 2011-07-01 → 2011-12-09
+
+  Total clean transaction rows : 779,425
+  Observation transaction rows : 557,398
+  Prediction transaction rows  : 222,027
+
+  Observation customers        : 5,041
+  Prediction customers         : 3,366
+  Pred-only (excluded)         : 837  ← first appeared after cutoff
+  Labeled customers            : 5,041
+  Churned  (label=1)           : 2,512 (49.8%)
+  Retained (label=0)           : 2,529 (50.2%)
+
+  Churn rate                   : 49.8%
+  Retention rate               : 50.2%
+
+  Class balance               : GOOD — near 50/50 split.
+  SMOTE / class weighting     : NOT required for this dataset.
+
+  ── Leakage prevention note ─────────────────────────────
+  churn_model_base uses ONLY observation-window features.
+  obs_recency_days = CUTOFF_DATE − obs_last_purchase_date.
+  No invoice_date >= 2011-07-01 was used in any feature column.
+  Full-period rfm_segment NOT included in churn_model_base.
+  Confirmed: model base is leakage-free. ✓
+
+  ── Model base columns (25) ───────────────────────────
+    customer_id
+    churned
+    purchased_in_prediction
+    obs_first_purchase_date
+    obs_last_purchase_date
+    obs_tenure_days
+    obs_recency_days
+    obs_total_invoices
+    obs_total_line_items
+    obs_total_quantity
+    obs_unique_products
+    obs_unique_purchase_days
+    obs_total_revenue
+    obs_average_invoice_value
+    obs_average_line_revenue
+    obs_average_unit_price
+    obs_purchase_frequency_per_month
+    obs_products_per_invoice
+    obs_quantity_per_invoice
+    obs_country_mode
+    obs_avg_days_between_purchases
+    obs_r_score
+    obs_f_score
+    obs_m_score
+    obs_rfm_total_score
+
+  ── Churn rate by obs_recency_bucket ────────────────────
+    0-30d        :  18.6% churn  (189/1016 customers)
+    31-60d       :  25.3% churn  (157/621 customers)
+    61-90d       :  38.7% churn  (137/354 customers)
+    91-180d      :  50.5% churn  (370/733 customers)
+    181-365d     :  65.1% churn  (1048/1609 customers)
+    365+d        :  86.3% churn  (611/708 customers)
+
+  ── Churn rate by obs_frequency_bucket ──────────────────
+    1 invoice    :  75.5% churn  (1177/1559 customers)
+    2-3          :  57.3% churn  (809/1411 customers)
+    4-5          :  41.2% churn  (296/718 customers)
+    6-10         :  22.4% churn  (173/772 customers)
+    11+          :   9.8% churn  (57/581 customers)
+
+  ── Churn rate by obs_monetary_bucket ───────────────────
+    Low        :  79.0% churn  (797/1009 customers)
+    Low-Mid    :  65.5% churn  (660/1008 customers)
+    Mid        :  52.8% churn  (532/1008 customers)
+    Mid-High   :  37.1% churn  (374/1008 customers)
+    High       :  14.8% churn  (149/1008 customers)

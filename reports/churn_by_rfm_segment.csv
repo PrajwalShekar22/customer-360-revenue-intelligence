@@ -1,0 +1,10 @@
+rfm_segment,customers,churned_customers,churn_rate,retained_customers,retention_rate
+At Risk,378,378,100.0,0,0.0
+Cannot Lose,223,223,100.0,0,0.0
+Hibernating,1510,1510,100.0,0,0.0
+Low Value,133,119,89.47,14,10.53
+Big Spenders,61,30,49.18,31,50.82
+Needs Attention,503,193,38.37,310,61.63
+Loyal Customers,632,59,9.34,573,90.66
+Champions,1241,0,0.0,1241,100.0
+Potential Loyalists,360,0,0.0,360,100.0
