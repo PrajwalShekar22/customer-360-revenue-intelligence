@@ -1,0 +1,17 @@
+check,value
+null_Description,4382
+null_Customer ID,243007
+duplicate_rows,34335
+quantity_negative,22950
+quantity_zero,0
+price_negative,5
+price_zero,6202
+missing_customer_id,243007
+cancelled_invoices,19494
+unique_customers,5942
+unique_invoices,53628
+unique_products,5305
+unique_countries,43
+total_rows,1067371
+date_min,2009-12-01 07:45:00
+date_max,2011-12-09 12:50:00

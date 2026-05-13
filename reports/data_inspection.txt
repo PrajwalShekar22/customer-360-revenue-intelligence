@@ -1,0 +1,82 @@
+RAW DATA INSPECTION REPORT
+File: data/raw/online_retail_II.xlsx
+
+=======================================================
+  SHEET: Year 2009-2010
+=======================================================
+  Rows          : 525,461
+  Columns       : 8
+  Column names  : ['Invoice', 'StockCode', 'Description', 'Quantity', 'InvoiceDate', 'Price', 'Customer ID', 'Country']
+
+  Dtypes:
+Invoice                object
+StockCode              object
+Description            object
+Quantity                int64
+InvoiceDate    datetime64[ns]
+Price                 float64
+Customer ID           float64
+Country                object
+
+  Sample (top 3):
+  Invoice StockCode                          Description  Quantity         InvoiceDate  Price  Customer ID         Country
+0  489434     85048  15CM CHRISTMAS GLASS BALL 20 LIGHTS        12 2009-12-01 07:45:00   6.95      13085.0  United Kingdom
+1  489434    79323P                   PINK CHERRY LIGHTS        12 2009-12-01 07:45:00   6.75      13085.0  United Kingdom
+2  489434    79323W                  WHITE CHERRY LIGHTS        12 2009-12-01 07:45:00   6.75      13085.0  United Kingdom
+
+  Date range    : 2009-12-01 07:45:00 -> 2010-12-09 20:01:00
+
+  Missing values:
+Invoice             0
+StockCode           0
+Description      2928
+Quantity            0
+InvoiceDate         0
+Price               0
+Customer ID    107927
+Country             0
+
+=======================================================
+  SHEET: Year 2010-2011
+=======================================================
+  Rows          : 541,910
+  Columns       : 8
+  Column names  : ['Invoice', 'StockCode', 'Description', 'Quantity', 'InvoiceDate', 'Price', 'Customer ID', 'Country']
+
+  Dtypes:
+Invoice                object
+StockCode              object
+Description            object
+Quantity                int64
+InvoiceDate    datetime64[ns]
+Price                 float64
+Customer ID           float64
+Country                object
+
+  Sample (top 3):
+  Invoice StockCode                         Description  Quantity         InvoiceDate  Price  Customer ID         Country
+0  536365    85123A  WHITE HANGING HEART T-LIGHT HOLDER         6 2010-12-01 08:26:00   2.55      17850.0  United Kingdom
+1  536365     71053                 WHITE METAL LANTERN         6 2010-12-01 08:26:00   3.39      17850.0  United Kingdom
+2  536365    84406B      CREAM CUPID HEARTS COAT HANGER         8 2010-12-01 08:26:00   2.75      17850.0  United Kingdom
+
+  Date range    : 2010-12-01 08:26:00 -> 2011-12-09 12:50:00
+
+  Missing values:
+Invoice             0
+StockCode           0
+Description      1454
+Quantity            0
+InvoiceDate         0
+Price               0
+Customer ID    135080
+Country             0
+
+=======================================================
+  COMBINED (all sheets)
+=======================================================
+  Total rows    : 1,067,371
+  Unique Customers : 5,942
+  Unique Invoices  : 53,628
+  Unique Products  : 5,305
+  Unique Countries : 43
+  Date range    : 2009-12-01 07:45:00 -> 2011-12-09 12:50:00

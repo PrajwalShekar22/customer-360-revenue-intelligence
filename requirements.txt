@@ -1,0 +1,28 @@
+# ── Core data manipulation ───────────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+openpyxl==3.1.2          # required to read .xlsx files with pandas
+
+# ── Visualization ────────────────────────────────────────
+matplotlib==3.8.4
+seaborn==0.13.2
+plotly==5.22.0
+
+# ── Machine learning ─────────────────────────────────────
+scikit-learn==1.4.2
+xgboost==2.0.3
+
+# ── Model explainability ─────────────────────────────────
+shap==0.45.1
+
+# ── Dashboard ────────────────────────────────────────────
+streamlit==1.35.0
+
+# ── Notebook support ─────────────────────────────────────
+jupyter==1.0.0
+ipykernel==6.29.4
+
+# ── Utilities ────────────────────────────────────────────
+python-dotenv==1.0.1      # load env variables (for optional BigQuery later)
+tqdm==4.66.4              # progress bars
+joblib==1.4.2             # save/load models

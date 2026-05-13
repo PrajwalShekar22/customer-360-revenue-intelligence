@@ -1,0 +1,23 @@
+name: customer360
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - pandas==2.2.2
+      - numpy==1.26.4
+      - openpyxl==3.1.2
+      - matplotlib==3.8.4
+      - seaborn==0.13.2
+      - plotly==5.22.0
+      - scikit-learn==1.4.2
+      - xgboost==2.0.3
+      - shap==0.45.1
+      - streamlit==1.35.0
+      - jupyter==1.0.0
+      - ipykernel==6.29.4
+      - python-dotenv==1.0.1
+      - tqdm==4.66.4
+      - joblib==1.4.2
