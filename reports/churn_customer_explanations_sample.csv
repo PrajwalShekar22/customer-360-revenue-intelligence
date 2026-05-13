@@ -1,0 +1,21 @@
+customer_id,actual_churned,predicted_churned,churn_probability,risk_tier,obs_recency_days,obs_total_invoices,obs_total_revenue,obs_purchase_frequency_per_month,obs_rfm_total_score,shap_top3_drivers
+12918,1,1,1.0,Critical Risk,464,1,10953.5,1.0,7,Not in SHAP sample
+15098,1,1,1.0,Critical Risk,20,3,39916.5,3.0,13,Not in SHAP sample
+15760,1,1,1.0,Critical Risk,468,2,13916.34,2.0,9,obs_average_unit_price=+5.832 | obs_average_line_revenue=+2.291 | obs_m_score=-0.496
+12737,1,1,0.9999,Critical Risk,336,2,3710.5,2.0,8,Not in SHAP sample
+15202,1,1,0.9999,Critical Risk,258,3,6001.49,3.0,10,Not in SHAP sample
+15749,1,1,0.9981,Critical Risk,73,3,44534.3,0.9278350515463918,12,Not in SHAP sample
+14255,1,1,0.9973,Critical Risk,384,1,1000.63,1.0,5,Not in SHAP sample
+13205,1,1,0.9843,Critical Risk,281,1,2803.2,1.0,8,Not in SHAP sample
+12636,1,1,0.984,Critical Risk,576,1,141.0,1.0,3,Not in SHAP sample
+14802,1,1,0.9797,Critical Risk,276,2,1502.98,2.0,8,Not in SHAP sample
+14308,1,1,0.9742,Critical Risk,387,2,1147.02,2.0,7,Not in SHAP sample
+14079,0,1,0.9704,Critical Risk,520,1,243.63,1.0,3,Not in SHAP sample
+14832,1,1,0.9674,Critical Risk,468,1,322.69,1.0,4,Not in SHAP sample
+14328,1,1,0.9589,Critical Risk,276,1,445.05,1.0,5,Not in SHAP sample
+16291,1,1,0.9573,Critical Risk,520,1,117.72,1.0,4,obs_average_unit_price=+6.290 | obs_average_line_revenue=+2.473 | obs_m_score=-0.496
+12789,0,1,0.9566,Critical Risk,350,2,181.5,0.3314917127071823,4,Not in SHAP sample
+12487,1,1,0.9549,Critical Risk,568,1,285.29999999999995,1.0,4,Not in SHAP sample
+16047,1,1,0.9547,Critical Risk,520,1,107.14,1.0,3,obs_recency_days=+1.018 | obs_rfm_total_score=+0.433 | obs_m_score=+0.431
+12796,1,1,0.951,Critical Risk,466,1,381.0,1.0,4,Not in SHAP sample
+18052,1,1,0.9508,Critical Risk,402,1,10877.18,1.0,8,obs_average_invoice_value=+1.356 | obs_average_line_revenue=+0.816 | obs_recency_days=+0.677

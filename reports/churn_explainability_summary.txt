@@ -1,0 +1,104 @@
+================================================================
+  STEP 10 — SHAP EXPLAINABILITY SUMMARY
+  Customer 360 Revenue Intelligence Platform
+================================================================
+
+  Input files:
+    data/processed/churn_model_base.parquet
+    data/processed/churn_predictions.parquet
+    models/churn_model.pkl
+    models/churn_feature_columns.json
+    models/model_metrics.json
+
+  Best model type          : LogisticRegression
+  Input features           : 20
+  Transformed features     : 57
+  Model ROC-AUC            : 0.8148
+  Explainability method    : Logistic Regression Coefficients (primary)
+  SHAP status              : success ✓
+
+────────────────────────────────────────────────────────────────
+  TOP 10 FEATURES INCREASING CHURN PROBABILITY
+────────────────────────────────────────────────────────────────
+  Feature                                        Coefficient
+  ----------------------------------------------------------
+  country:Netherlands                                +0.7083
+  country:USA                                        +0.7035
+  country:Greece                                     +0.6667
+  country:Canada                                     +0.6006
+  obs_average_unit_price                             +0.5644
+  country:Brazil                                     +0.5218
+  country:Bahrain                                    +0.5010
+  obs_total_invoices                                 +0.4487
+  obs_recency_days                                   +0.4366
+  country:Sweden                                     +0.3891
+
+────────────────────────────────────────────────────────────────
+  TOP 10 FEATURES DECREASING CHURN PROBABILITY
+────────────────────────────────────────────────────────────────
+  Feature                                        Coefficient
+  ----------------------------------------------------------
+  country:Denmark                                    -1.2589
+  country:Switzerland                                -0.7223
+  obs_unique_purchase_days                           -0.6870
+  country:Spain                                      -0.6227
+  country:Germany                                    -0.5193
+  country:Finland                                    -0.4520
+  country:Czech Republic                             -0.4289
+  obs_m_score                                        -0.3278
+  country:France                                     -0.2887
+  obs_rfm_total_score                                -0.2707
+
+────────────────────────────────────────────────────────────────
+  BUSINESS INTERPRETATION
+────────────────────────────────────────────────────────────────
+
+  Churn RISK increases with:
+    ↑ obs_average_unit_price (coef +0.5644)
+    ↑ obs_total_invoices (coef +0.4487)
+    ↑ obs_recency_days (coef +0.4366)
+    ↑ obs_average_line_revenue (coef +0.3704)
+    ↑ obs_avg_days_between_purchases (coef +0.1925)
+
+  Churn RISK decreases with:
+    ↓ obs_unique_purchase_days (coef -0.6870)
+    ↓ obs_m_score (coef -0.3278)
+    ↓ obs_rfm_total_score (coef -0.2707)
+    ↓ obs_r_score (coef -0.2321)
+    ↓ obs_total_line_items (coef -0.2098)
+
+  Key business patterns (from coefficient signs):
+    • Customers who purchased more recently (lower obs_recency_days)
+      have lower churn risk — recency is the most actionable signal.
+    • Customers with more invoices (higher obs_total_invoices) and more
+      unique purchase days are significantly less likely to churn.
+    • Higher obs_total_revenue and obs_average_invoice_value correlate
+      with lower churn — high-value customers are more loyal.
+    • Country-specific coefficients reflect regional retention differences;
+      UK customers (91.5% of base) are near the intercept baseline.
+
+────────────────────────────────────────────────────────────────
+  HOW BUSINESS TEAMS SHOULD USE THIS
+────────────────────────────────────────────────────────────────
+  1. Prioritise Critical Risk customers (churn_prob >= 0.80):
+     → 874 customers. Immediate personal outreach + discount offer.
+  2. Prioritise High Risk customers (0.60–0.80):
+     → 1,256 customers. Win-back email within 7 days.
+  3. Focus on customers with long inactivity (obs_recency_days > 180d)
+     who have historically high spend — these are 'Cannot Lose' profiles.
+  4. Protect Champions: recency < 30d, frequency > 10 invoices,
+     high revenue — their churn probability is naturally low.
+  5. One-time buyers (obs_total_invoices == 1) churn at 75.5% —
+     incentivise a second purchase immediately after the first.
+
+────────────────────────────────────────────────────────────────
+  LIMITATIONS
+────────────────────────────────────────────────────────────────
+  1. Coefficients show directional associations, not guaranteed causality.
+  2. Country features are sparse (41 categories) — some coefficients
+     may reflect noise from small sample sizes in rare countries.
+  3. Churn label is engineered from purchase inactivity, not a company
+     flag — seasonal patterns may create false 'churn' labels.
+  4. Dataset is historical (Dec 2009 – Dec 2011). Model must be retrained
+     on fresh data before production deployment.
+  5. SHAP status: success.

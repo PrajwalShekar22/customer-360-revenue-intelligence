@@ -1,0 +1,58 @@
+feature,raw_feature,coefficient,abs_coefficient,direction
+country:Denmark,cat__obs_country_mode_Denmark,-1.2589484830183262,1.2589484830183262,Decreases churn risk
+country:Switzerland,cat__obs_country_mode_Switzerland,-0.722329467965329,0.722329467965329,Decreases churn risk
+country:Netherlands,cat__obs_country_mode_Netherlands,0.7083292593335032,0.7083292593335032,Increases churn risk
+country:USA,cat__obs_country_mode_USA,0.7034555969171449,0.7034555969171449,Increases churn risk
+obs_unique_purchase_days,num__obs_unique_purchase_days,-0.6870212320064467,0.6870212320064467,Decreases churn risk
+country:Greece,cat__obs_country_mode_Greece,0.6667378703586985,0.6667378703586985,Increases churn risk
+country:Spain,cat__obs_country_mode_Spain,-0.622650821099957,0.622650821099957,Decreases churn risk
+country:Canada,cat__obs_country_mode_Canada,0.600617060574013,0.600617060574013,Increases churn risk
+obs_average_unit_price,num__obs_average_unit_price,0.5643865007201673,0.5643865007201673,Increases churn risk
+country:Brazil,cat__obs_country_mode_Brazil,0.5217774941753434,0.5217774941753434,Increases churn risk
+country:Germany,cat__obs_country_mode_Germany,-0.5192507239680781,0.5192507239680781,Decreases churn risk
+country:Bahrain,cat__obs_country_mode_Bahrain,0.5009958927820513,0.5009958927820513,Increases churn risk
+country:Finland,cat__obs_country_mode_Finland,-0.4519898787147986,0.4519898787147986,Decreases churn risk
+obs_total_invoices,num__obs_total_invoices,0.4486851663576561,0.4486851663576561,Increases churn risk
+obs_recency_days,num__obs_recency_days,0.4366435804439403,0.4366435804439403,Increases churn risk
+country:Czech Republic,cat__obs_country_mode_Czech Republic,-0.42887951975290917,0.42887951975290917,Decreases churn risk
+country:Sweden,cat__obs_country_mode_Sweden,0.3891137314070833,0.3891137314070833,Increases churn risk
+obs_average_line_revenue,num__obs_average_line_revenue,0.3703503832346515,0.3703503832346515,Increases churn risk
+country:Korea,cat__obs_country_mode_Korea,0.3426276129086425,0.3426276129086425,Increases churn risk
+obs_m_score,num__obs_m_score,-0.327830940237052,0.327830940237052,Decreases churn risk
+country:Lebanon,cat__obs_country_mode_Lebanon,0.3082288528174912,0.3082288528174912,Increases churn risk
+country:France,cat__obs_country_mode_France,-0.28870481532422054,0.28870481532422054,Decreases churn risk
+obs_rfm_total_score,num__obs_rfm_total_score,-0.27065360194481836,0.27065360194481836,Decreases churn risk
+country:Poland,cat__obs_country_mode_Poland,-0.2552028560709473,0.2552028560709473,Decreases churn risk
+country:Norway,cat__obs_country_mode_Norway,-0.2545514394971325,0.2545514394971325,Decreases churn risk
+country:European Community,cat__obs_country_mode_European Community,-0.24241103939279796,0.24241103939279796,Decreases churn risk
+country:Malta,cat__obs_country_mode_Malta,-0.2332525222082028,0.2332525222082028,Decreases churn risk
+obs_r_score,num__obs_r_score,-0.23214724564706726,0.23214724564706726,Decreases churn risk
+country:United Kingdom,cat__obs_country_mode_United Kingdom,-0.2275626855290994,0.2275626855290994,Decreases churn risk
+country:Thailand,cat__obs_country_mode_Thailand,0.21142678649321836,0.21142678649321836,Increases churn risk
+obs_total_line_items,num__obs_total_line_items,-0.2097616819297639,0.2097616819297639,Decreases churn risk
+country:United Arab Emirates,cat__obs_country_mode_United Arab Emirates,0.2008540334579324,0.2008540334579324,Increases churn risk
+country:Saudi Arabia,cat__obs_country_mode_Saudi Arabia,0.19734227855880335,0.19734227855880335,Increases churn risk
+obs_avg_days_between_purchases,num__obs_avg_days_between_purchases,0.19247293936471288,0.19247293936471288,Increases churn risk
+country:Austria,cat__obs_country_mode_Austria,0.17147004655563616,0.17147004655563616,Increases churn risk
+country:Israel,cat__obs_country_mode_Israel,-0.1418696280661662,0.1418696280661662,Decreases churn risk
+country:West Indies,cat__obs_country_mode_West Indies,0.14152059629807504,0.14152059629807504,Increases churn risk
+obs_f_score,num__obs_f_score,-0.13490941625518768,0.13490941625518768,Decreases churn risk
+country:Portugal,cat__obs_country_mode_Portugal,0.1337051196797779,0.1337051196797779,Increases churn risk
+country:Italy,cat__obs_country_mode_Italy,-0.12206015009805905,0.12206015009805905,Decreases churn risk
+country:Belgium,cat__obs_country_mode_Belgium,0.12049940899307868,0.12049940899307868,Increases churn risk
+country:Iceland,cat__obs_country_mode_Iceland,-0.11495570760014731,0.11495570760014731,Decreases churn risk
+country:Unspecified,cat__obs_country_mode_Unspecified,-0.10229072139642922,0.10229072139642922,Decreases churn risk
+country:RSA,cat__obs_country_mode_RSA,0.09789361682104047,0.09789361682104047,Increases churn risk
+obs_total_quantity,num__obs_total_quantity,-0.08573954432385496,0.08573954432385496,Decreases churn risk
+country:Cyprus,cat__obs_country_mode_Cyprus,0.07698327883317115,0.07698327883317115,Increases churn risk
+obs_average_invoice_value,num__obs_average_invoice_value,0.0738637011771717,0.0738637011771717,Increases churn risk
+obs_purchase_frequency_per_month,num__obs_purchase_frequency_per_month,0.061893401378749255,0.061893401378749255,Increases churn risk
+country:EIRE,cat__obs_country_mode_EIRE,-0.05111109891385066,0.05111109891385066,Decreases churn risk
+country:Japan,cat__obs_country_mode_Japan,-0.04534030794155904,0.04534030794155904,Decreases churn risk
+obs_total_revenue,num__obs_total_revenue,-0.038486226677992126,0.038486226677992126,Decreases churn risk
+obs_products_per_invoice,num__obs_products_per_invoice,-0.03482686336622607,0.03482686336622607,Decreases churn risk
+obs_quantity_per_invoice,num__obs_quantity_per_invoice,0.029797287982299015,0.029797287982299015,Increases churn risk
+country:Australia,cat__obs_country_mode_Australia,0.02502098159029618,0.02502098159029618,Increases churn risk
+country:Channel Islands,cat__obs_country_mode_Channel Islands,0.023580161822244174,0.023580161822244174,Increases churn risk
+obs_unique_products,num__obs_unique_products,-0.01678893125128207,0.01678893125128207,Decreases churn risk
+obs_tenure_days,num__obs_tenure_days,-0.00614512821737085,0.00614512821737085,Decreases churn risk
