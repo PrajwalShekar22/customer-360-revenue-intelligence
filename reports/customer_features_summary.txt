@@ -1,0 +1,61 @@
+==========================================================
+  STEP 6 — CUSTOMER FEATURES SUMMARY
+  Customer 360 Revenue Intelligence Platform
+==========================================================
+
+  Input transaction rows       : 779,425
+  Unique customers (source)    : 5,878
+  Snapshot date used           : 2011-12-10
+  Final customer feature rows  : 5,878
+  Total feature columns        : 27
+
+  ── Revenue validation ──────────────────────────
+  Total revenue (features)     : £17,374,804.27
+  Total revenue (transactions) : £17,374,804.27
+  Difference                   : £0.00  ✓
+
+  ── Buyer behaviour ─────────────────────────────
+  Repeat buyers                : 4,255 (72.4%)
+  One-time buyers              : 1,623 (27.6%)
+
+  ── Revenue distribution ────────────────────────
+  Mean revenue per customer    : £2,955.90
+  Median revenue per customer  : £867.74
+  Min revenue per customer     : £2.95
+  Max revenue per customer     : £580,987.04
+
+  ── Invoice frequency ───────────────────────────
+  Mean invoices per customer   : 6.29
+  Median invoices per customer : 3.0
+  Max invoices (single cust.)  : 398
+
+  ── Recency ─────────────────────────────────────
+  Mean recency_days            : 201.3
+  Median recency_days          : 96.0
+  Min recency_days             : 1
+  Max recency_days             : 739
+
+  ── Tenure ──────────────────────────────────────
+  Mean tenure_days             : 273.0
+  Median tenure_days           : 220.5
+
+  ── Top 10 customers by revenue ─────────────────
+    18102     £  580,987.04   145 invoices  recency 1 days
+    14646     £  528,602.52   151 invoices  recency 2 days
+    14156     £  313,437.62   156 invoices  recency 10 days
+    14911     £  291,420.81   398 invoices  recency 1 days
+    17450     £  244,784.25    51 invoices  recency 8 days
+    13694     £  195,640.69   143 invoices  recency 4 days
+    17511     £  172,132.87    60 invoices  recency 3 days
+    16446     £  168,472.50     2 invoices  recency 1 days
+    16684     £  147,142.77    55 invoices  recency 4 days
+    12415     £  144,458.37    28 invoices  recency 24 days
+
+  ── Return features ─────────────────────────────
+  Customers with returns       : 2,511 (42.7%)
+  Return features included     : total_returns, return_quantity_abs, has_returned, return_rate
+
+  ── Output files ────────────────────────────────
+  data/processed/customer_features.csv
+  data/processed/customer_features.parquet
+  reports/customer_features_sample.csv
