@@ -1,0 +1,75 @@
+============================================================
+  STEP 7 — RFM SEGMENTATION SUMMARY
+  Customer 360 Revenue Intelligence Platform
+============================================================
+
+  Input customer rows          : 5,878
+  Output RFM rows              : 5,878
+  RFM columns added            : r_score, f_score, m_score,
+                                 rfm_score, rfm_total_score,
+                                 rfm_average_score, rfm_segment,
+                                 recommended_action  (8 new columns)
+
+  Revenue validation:
+    RFM total revenue          : £17,374,804.27
+    Features total revenue     : £17,374,804.27
+    Difference                 : £0.00  ✓
+
+────────────────────────────────────────────────────────────
+  SEGMENT COUNT TABLE
+────────────────────────────────────────────────────────────
+  Segment                 Customers        %
+  ------------------------------------------
+  Hibernating                 1,510    25.7%
+  Champions                   1,297    22.1%
+  Potential Loyalists           692    11.8%
+  Loyal Customers               650    11.1%
+  Needs Attention               596    10.1%
+  At Risk                       378     6.4%
+  Low Value                     295     5.0%
+  Cannot Lose                   223     3.8%
+  New Customers                 167     2.8%
+  Big Spenders                   70     1.2%
+
+────────────────────────────────────────────────────────────
+  SEGMENT REVENUE TABLE
+────────────────────────────────────────────────────────────
+  Segment                       Revenue    Rev%    Avg Rev   AvgRec   AvgInv
+  --------------------------------------------------------------------------
+  Champions              £11,859,591.50   68.3% £9,143.86      20d    17.1
+  Loyal Customers        £1,833,826.46   10.6% £2,821.27      85d     8.0
+  Cannot Lose            £  982,122.18    5.7% £4,404.14     342d     9.0
+  Big Spenders           £  604,226.59    3.5% £8,631.81     213d     2.9
+  Hibernating            £  562,387.41    3.2% £  372.44     459d     1.2
+  Potential Loyalists    £  531,696.61    3.1% £  768.35      26d     2.6
+  Needs Attention        £  456,885.04    2.6% £  766.59     151d     2.9
+  At Risk                £  413,306.84    2.4% £1,093.40     368d     3.7
+  Low Value              £   78,929.01    0.5% £  267.56     222d     1.5
+  New Customers          £   51,832.62    0.3% £  310.37      30d     1.0
+
+────────────────────────────────────────────────────────────
+  KEY BUSINESS INSIGHTS
+────────────────────────────────────────────────────────────
+  Top segment by count   : Hibernating (1,510 customers, 25.7%)
+  Top segment by revenue : Champions (£11,859,591.50, 68.3%)
+
+  Champions              : 1,297 customers (22.1%)
+  Champions revenue      : £11,859,591.50 (68.3% of total)
+
+  At Risk + Cannot Lose  : 601 customers (10.2%)
+
+────────────────────────────────────────────────────────────
+  BUSINESS INTERPRETATION — TOP 3 SEGMENTS
+────────────────────────────────────────────────────────────
+  #1 Champions
+     Revenue : £11,859,591.50 (68.3%)
+     Avg Rev : £9,143.86 per customer
+     Insight : Best customers — high recency, frequency and spend. Protect and reward.
+  #2 Loyal Customers
+     Revenue : £1,833,826.46 (10.6%)
+     Avg Rev : £2,821.27 per customer
+     Insight : Consistently engaged and valuable. Upsell and cross-sell opportunity.
+  #3 Cannot Lose
+     Revenue : £982,122.18 (5.7%)
+     Avg Rev : £4,404.14 per customer
+     Insight : Previously top customers now going quiet. Immediate retention priority.
