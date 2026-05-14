@@ -399,7 +399,6 @@ st.markdown(f"""
         <a class="header-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
         <a class="header-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
         <a class="header-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
-        <a class="header-link" href="mailto:{DEV_EMAIL}">📩 Email</a>
     </div>
     <div class="header-currency-note">
         💷 All monetary values are shown in <strong>GBP (£)</strong>, based on the original
@@ -558,7 +557,6 @@ with st.sidebar:
         <div class="sidebar-contact-name">{DEV_NAME}</div>
         <div class="sidebar-contact-role">Data Analyst · Business Analytics · ML · Data Engineering</div>
         <div class="sidebar-contact-links">
-            <a class="sidebar-link" href="mailto:{DEV_EMAIL}">📩 Email</a>
             <a class="sidebar-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
             <a class="sidebar-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
             <a class="sidebar-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
@@ -574,7 +572,7 @@ tabs = st.tabs([
     "Customer Lookup",
     "Revenue & Products",
     "Action Plan",
-    "Contact Developer",
+    "About Project",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -1453,30 +1451,41 @@ with tabs[5]:
         )
 
 # ════════════════════════════════════════════════════════════════════════════════
-# TAB 7 — CONTACT DEVELOPER
+# TAB 7 — ABOUT PROJECT
 # ════════════════════════════════════════════════════════════════════════════════
 with tabs[6]:
-    # Intro
+    # Project overview card
     st.markdown(f"""
-    <div style="max-width:720px;margin:0 auto 28px auto">
-        <h2 style="font-size:1.5rem;font-weight:700;color:#1a1a2e;margin-bottom:6px">
-            Get in Touch
-        </h2>
-        <p style="color:#4b5563;font-size:0.95rem;line-height:1.6;margin:0">
-            Interested in discussing this project, collaboration, or data analytics opportunities?
-            I'd love to hear from you. Use the form below or reach out directly through any of
-            the channels listed.
-        </p>
+    <div style="background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);
+                border-radius:12px;padding:28px 32px;margin-bottom:24px;color:white">
+        <div style="font-size:1.4rem;font-weight:700;margin-bottom:6px">
+            Customer 360 Revenue Intelligence Platform
+        </div>
+        <div style="font-size:0.88rem;color:#bfdbfe;margin-bottom:14px">
+            Customer Segmentation &nbsp;·&nbsp; Churn Prediction &nbsp;·&nbsp;
+            Health Scoring &nbsp;·&nbsp; Revenue Action Planning
+        </div>
+        <div style="font-size:0.92rem;color:#e0f2fe;line-height:1.7;margin-bottom:16px">
+            This project analyses customer transaction behaviour, segments customers using
+            RFM (Recency, Frequency, Monetary) scoring, predicts churn risk using a
+            Logistic Regression model, explains model drivers with SHAP, and prioritises
+            retention and growth actions through this interactive dashboard.
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;
+                    font-size:0.82rem;color:#93c5fd">
+            Built by <strong style="color:white">{DEV_NAME}</strong>
+            &nbsp;—&nbsp; {DEV_ROLE}
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Contact cards row
-    cc1, cc2, cc3, cc4 = st.columns(4)
+    # Link cards
+    st.markdown('<div class="section-heading">Connect</div>', unsafe_allow_html=True)
+    cc1, cc2, cc3, _pad = st.columns([1, 1, 1, 1])
     for col, icon, title, label, href in [
-        (cc1, "📩", "Email",     DEV_EMAIL,                   f"mailto:{DEV_EMAIL}"),
-        (cc2, "💼", "LinkedIn",  "linkedin.com/in/prajwalshekar", DEV_LINKEDIN),
-        (cc3, "🐙", "GitHub",    "PrajwalShekar22",             DEV_GITHUB),
-        (cc4, "🌐", "Portfolio", "datascienceportfol.io/pgc", DEV_PORTFOLIO),
+        (cc1, "💼", "LinkedIn",  "linkedin.com/in/prajwalshekar", DEV_LINKEDIN),
+        (cc2, "🐙", "GitHub",    "PrajwalShekar22",               DEV_GITHUB),
+        (cc3, "🌐", "Portfolio", "datascienceportfol.io/pgc",     DEV_PORTFOLIO),
     ]:
         with col:
             st.markdown(f"""
@@ -1488,97 +1497,55 @@ with tabs[6]:
             """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.divider()
 
-    # Contact form
-    st.markdown('<div class="section-heading">Send a Message</div>', unsafe_allow_html=True)
-    st.caption(
-        "Fill in the form below. On submit, you'll get a direct mailto link that opens your "
-        "email client with the message pre-filled — no third-party service required."
-    )
-
-    with st.form("contact_form", clear_on_submit=False):
-        form_col1, form_col2 = st.columns(2)
-        with form_col1:
-            contact_name = st.text_input("Your Name *")
-        with form_col2:
-            contact_email = st.text_input("Your Email *")
-
-        contact_subject = st.text_input("Subject *")
-        contact_message = st.text_area(
-            "Message * (max 150 words)",
-            height=150,
-            placeholder="Write your message here...",
-        )
-
-        # Live word count display (static — updates on rerun)
-        word_count = len(contact_message.split()) if contact_message.strip() else 0
-        wc_color = "#dc2626" if word_count > 150 else "#166534"
+    # Pipeline summary
+    st.markdown('<div class="section-heading">Project Pipeline</div>', unsafe_allow_html=True)
+    steps = [
+        ("Data Ingestion & Quality Audit",
+         "Loaded 1M+ rows from UCI Online Retail II. Removed nulls, cancellations, duplicates, and zero-price records."),
+        ("Data Cleaning & Feature Engineering",
+         "Built 27 customer-level features: recency, frequency, monetary, returns, engagement, and tenure metrics."),
+        ("EDA & Revenue Analysis",
+         "Identified that 72.4% repeat buyers drive 96.8% of revenue. Peak month: Nov 2010 (£1.17M)."),
+        ("RFM Segmentation",
+         "Assigned R/F/M scores (1–5) and mapped customers to 10 business segments including Champions and Hibernating."),
+        ("Churn Labelling",
+         "Time-window methodology: observation cutoff 2011-07-01. Near-perfect 50/50 churn balance (no SMOTE needed)."),
+        ("Churn Model Training",
+         "Logistic Regression selected (ROC-AUC 0.8148). Compared against Random Forest and XGBoost. Strict leakage prevention."),
+        ("SHAP Explainability",
+         "SHAP LinearExplainer on 1,000-row sample. Top drivers: recency, unique purchase days, RFM score."),
+        ("Customer Health Score",
+         "4-component score (0–100): RFM 40pt · Churn Safety 30pt · Revenue 20pt · Engagement 10pt."),
+        ("Customer 360 Table",
+         "5,878-customer master table with health tier, action priority, VIP flag, and retention target flag."),
+        ("Interactive Dashboard",
+         "Streamlit dashboard with 7 tabs, sidebar filters, KPI cards, 20+ Plotly charts, and CSV exports."),
+    ]
+    for i, (step_title, step_desc) in enumerate(steps, 1):
         st.markdown(
-            f'<p style="font-size:0.8rem;color:{wc_color};margin-top:-8px">'
-            f'Message word count: <b>{word_count} / 150</b></p>',
+            f'<div class="insight-box" style="margin-bottom:6px">'
+            f'<b>Step {i:02d} — {step_title}</b><br>'
+            f'<span style="color:#374151">{step_desc}</span>'
+            f'</div>',
             unsafe_allow_html=True,
         )
 
-        submitted = st.form_submit_button("Send Message", use_container_width=False)
-
-    # Validation & mailto generation (outside the form, triggered by submit)
-    if submitted:
-        errors = []
-        if not contact_name.strip():
-            errors.append("Name is required.")
-        if not contact_email.strip():
-            errors.append("Email is required.")
-        elif "@" not in contact_email or "." not in contact_email:
-            errors.append("Please enter a valid email address.")
-        if not contact_subject.strip():
-            errors.append("Subject is required.")
-        if not contact_message.strip():
-            errors.append("Message is required.")
-        elif word_count > 150:
-            errors.append(f"Message is {word_count} words — please keep it under 150 words.")
-
-        if errors:
-            for err in errors:
-                st.markdown(
-                    f'<div class="warning-box">⚠️ {err}</div>',
-                    unsafe_allow_html=True,
-                )
-        else:
-            import urllib.parse
-            subject_enc = urllib.parse.quote(contact_subject)
-            body_text   = (
-                f"Hi Prajwal,\n\nMy name is {contact_name} ({contact_email}).\n\n"
-                f"{contact_message}\n\nBest regards,\n{contact_name}"
-            )
-            body_enc = urllib.parse.quote(body_text)
-            mailto_url = f"mailto:{DEV_EMAIL}?subject={subject_enc}&body={body_enc}"
-
-            st.markdown(
-                f'<div class="success-box">'
-                f'✅ Thanks, <b>{contact_name}</b>! Your message is ready.<br><br>'
-                f'For now, please email me directly at '
-                f'<a href="mailto:{DEV_EMAIL}" style="color:#166534;font-weight:600">'
-                f'{DEV_EMAIL}</a> or connect with me on '
-                f'<a href="{DEV_LINKEDIN}" target="_blank" style="color:#166534;font-weight:600">'
-                f'LinkedIn</a>.<br><br>'
-                f'<a href="{mailto_url}" style="display:inline-block;background:#1d4ed8;'
-                f'color:white;padding:8px 20px;border-radius:6px;text-decoration:none;'
-                f'font-weight:600;font-size:0.88rem">📩 Open in Email Client</a>'
-                f'</div>',
-                unsafe_allow_html=True,
-            )
-
-            # Also show read-only message preview
-            with st.expander("Preview your message"):
-                st.text(body_text)
-
-    # Note about Formspree (Option B hook for future)
     st.markdown("<br>", unsafe_allow_html=True)
-    st.caption(
-        "Note: This form uses a client-side mailto link (no server required). "
-        "For automated email delivery, a Formspree or SMTP integration can be added at deployment time."
-    )
+
+    # Dataset, currency, and disclaimer notes
+    st.markdown('<div class="section-heading">Notes & Disclaimer</div>', unsafe_allow_html=True)
+    for note in [
+        "Dataset: UCI Online Retail II — historical transaction data from a UK-based online retailer (Dec 2009 – Dec 2011).",
+        "All monetary values are shown in GBP (£). Country filters customer location only and do not change transaction currency.",
+        "This project is built for portfolio and educational demonstration. Insights are based on a public historical dataset.",
+    ]:
+        st.markdown(
+            f'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px;'
+            f'padding:11px 16px;margin-bottom:7px;font-size:0.86rem;color:#374151">'
+            f'{note}</div>',
+            unsafe_allow_html=True,
+        )
 
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -1591,7 +1558,6 @@ st.markdown(f"""
         <a class="footer-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
         <a class="footer-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
         <a class="footer-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
-        <a class="footer-link" href="mailto:{DEV_EMAIL}">Email</a>
     </div>
     <div class="footer-note">
         Built and maintained by {DEV_NAME} © 2026. Portfolio project for demonstration purposes.
