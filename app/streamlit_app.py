@@ -1,7 +1,22 @@
 """
 Customer 360 Revenue Intelligence Platform — Streamlit Dashboard
 Step 12: Interactive business dashboard powered by customer_360.parquet
+
+Developer: Prajwal Gorkhar Chandrashekar
+Role: Data Analyst | Business Analytics | Machine Learning | Data Engineering
+GitHub: https://github.com/PrajwalShekar22
+LinkedIn: https://www.linkedin.com/in/prajwalshekar
+Portfolio: https://datascienceportfol.io/pgorkhar
+Email: prajwalshekar22@gmail.com
 """
+
+# ── Developer contact info (single source of truth) ──────────────────────────
+DEV_NAME      = "Prajwal Gorkhar Chandrashekar"
+DEV_ROLE      = "Data Analyst | Business Analytics | Machine Learning | Data Engineering"
+DEV_GITHUB    = "https://github.com/PrajwalShekar22"
+DEV_LINKEDIN  = "https://www.linkedin.com/in/prajwalshekar"
+DEV_PORTFOLIO = "https://datascienceportfol.io/pgorkhar"
+DEV_EMAIL     = "prajwalshekar22@gmail.com"
 
 import pandas as pd
 import numpy as np
@@ -24,96 +39,233 @@ st.markdown("""
     /* Global font */
     html, body, [class*="css"] { font-family: 'Inter', 'Segoe UI', sans-serif; }
 
-    /* Main header */
-    .main-header {
-        font-size: 1.9rem;
-        font-weight: 700;
-        color: #1a1a2e;
-        margin-bottom: 0.1rem;
+    /* ── Header card ── */
+    .header-card {
+        background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+        border-radius: 12px;
+        padding: 24px 30px 20px 30px;
+        margin-bottom: 18px;
+        color: white;
     }
-    .sub-header {
-        font-size: 0.95rem;
-        color: #555;
-        margin-bottom: 1.5rem;
+    .header-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0 0 4px 0;
+        letter-spacing: -0.01em;
+    }
+    .header-subtitle {
+        font-size: 0.92rem;
+        color: #bfdbfe;
+        margin: 0 0 8px 0;
+    }
+    .header-owner {
+        font-size: 0.82rem;
+        color: #e0f2fe;
+        margin: 0 0 12px 0;
+    }
+    .header-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    .header-link {
+        background: rgba(255,255,255,0.15);
+        color: #ffffff !important;
+        padding: 5px 14px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid rgba(255,255,255,0.25);
+        transition: background 0.2s;
+    }
+    .header-link:hover { background: rgba(255,255,255,0.28); }
+    .header-currency-note {
+        font-size: 0.75rem;
+        color: #93c5fd;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 10px;
+        margin-top: 4px;
     }
 
-    /* Section heading */
+    /* ── Section heading ── */
     .section-heading {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 600;
         color: #1a1a2e;
-        border-left: 4px solid #3b82f6;
+        border-left: 4px solid #1d4ed8;
         padding-left: 10px;
         margin: 1.2rem 0 0.6rem 0;
     }
 
-    /* KPI card */
+    /* ── KPI card ── */
     .metric-card {
         background: #ffffff;
         border: 1px solid #e5e7eb;
         border-radius: 10px;
         padding: 16px 20px;
         text-align: center;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        height: 100%;
     }
     .metric-label {
-        font-size: 0.78rem;
-        font-weight: 500;
+        font-size: 0.72rem;
+        font-weight: 600;
         color: #6b7280;
         text-transform: uppercase;
-        letter-spacing: 0.04em;
-        margin-bottom: 4px;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
     }
     .metric-value {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         font-weight: 700;
         color: #111827;
     }
     .metric-delta {
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         color: #6b7280;
-        margin-top: 2px;
+        margin-top: 4px;
     }
 
-    /* Insight / alert boxes */
+    /* ── Insight / alert boxes ── */
     .insight-box {
         background: #eff6ff;
         border: 1px solid #bfdbfe;
         border-radius: 8px;
-        padding: 14px 18px;
-        margin: 10px 0;
-        font-size: 0.9rem;
+        padding: 13px 16px;
+        margin: 8px 0;
+        font-size: 0.88rem;
         color: #1e40af;
+        line-height: 1.5;
     }
     .warning-box {
         background: #fff7ed;
         border: 1px solid #fed7aa;
         border-radius: 8px;
-        padding: 14px 18px;
-        margin: 10px 0;
-        font-size: 0.9rem;
+        padding: 13px 16px;
+        margin: 8px 0;
+        font-size: 0.88rem;
         color: #9a3412;
     }
     .success-box {
         background: #f0fdf4;
         border: 1px solid #bbf7d0;
         border-radius: 8px;
-        padding: 14px 18px;
-        margin: 10px 0;
-        font-size: 0.9rem;
+        padding: 13px 16px;
+        margin: 8px 0;
+        font-size: 0.88rem;
         color: #166534;
     }
     .danger-box {
         background: #fef2f2;
         border: 1px solid #fecaca;
         border-radius: 8px;
-        padding: 14px 18px;
-        margin: 10px 0;
-        font-size: 0.9rem;
+        padding: 13px 16px;
+        margin: 8px 0;
+        font-size: 0.88rem;
         color: #991b1b;
     }
 
-    /* Hide Streamlit footer */
+    /* ── Contact cards ── */
+    .contact-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 18px 20px;
+        text-align: center;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        margin-bottom: 8px;
+    }
+    .contact-card-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .contact-card-title {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+    }
+    .contact-card-link {
+        font-size: 0.88rem;
+        color: #1d4ed8 !important;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .contact-card-link:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    .site-footer {
+        margin-top: 48px;
+        padding: 24px 0 12px 0;
+        border-top: 1px solid #e5e7eb;
+        text-align: center;
+    }
+    .footer-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+    }
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 10px;
+    }
+    .footer-link {
+        font-size: 0.82rem;
+        color: #1d4ed8 !important;
+        text-decoration: none;
+    }
+    .footer-link:hover { text-decoration: underline; }
+    .footer-note {
+        font-size: 0.75rem;
+        color: #9ca3af;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+
+    /* ── Sidebar contact ── */
+    .sidebar-contact {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-top: 10px;
+        font-size: 0.8rem;
+    }
+    .sidebar-contact-name {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.85rem;
+        margin-bottom: 2px;
+    }
+    .sidebar-contact-role {
+        color: #64748b;
+        font-size: 0.72rem;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+    .sidebar-contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .sidebar-link {
+        background: #1d4ed8;
+        color: #fff !important;
+        padding: 3px 10px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 0.72rem;
+        font-weight: 500;
+    }
+    .sidebar-link:hover { background: #1e40af; }
+
+    /* Hide default Streamlit footer/menu */
     footer { visibility: hidden; }
     #MainMenu { visibility: hidden; }
 </style>
@@ -233,20 +385,29 @@ txn_df = load_transactions()
 feat_imp = load_feature_importance()
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown('<div class="main-header">Customer 360 Revenue Intelligence Platform</div>', unsafe_allow_html=True)
-st.markdown(
-    '<div class="sub-header">Customer Segmentation · Churn Risk · Health Scoring · Revenue Action Planning</div>',
-    unsafe_allow_html=True,
-)
-st.markdown(
-    '<div style="font-size:0.8rem;color:#6b7280;margin-bottom:0.5rem">'
-    'All monetary values are in <b>GBP (£)</b>. '
-    'Data source: UCI Online Retail II dataset (UK-based retailer, 2009–2011). '
-    'Country filter applies to customer location only — currency does not change.'
-    '</div>',
-    unsafe_allow_html=True,
-)
-st.divider()
+st.markdown(f"""
+<div class="header-card">
+    <div class="header-title">📊 Customer 360 Revenue Intelligence Platform</div>
+    <div class="header-subtitle">
+        Customer Segmentation &nbsp;·&nbsp; Churn Risk &nbsp;·&nbsp;
+        Health Scoring &nbsp;·&nbsp; Revenue Action Planning
+    </div>
+    <div class="header-owner">
+        Built by <strong>{DEV_NAME}</strong> &nbsp;—&nbsp; {DEV_ROLE}
+    </div>
+    <div class="header-links">
+        <a class="header-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
+        <a class="header-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
+        <a class="header-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
+        <a class="header-link" href="mailto:{DEV_EMAIL}">📩 Email</a>
+    </div>
+    <div class="header-currency-note">
+        💷 All monetary values are shown in <strong>GBP (£)</strong>, based on the original
+        UK retailer transaction dataset (UCI Online Retail II, 2009–2011).
+        Country filter applies to customer location only — currency symbol never changes.
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # ── Sidebar filters ───────────────────────────────────────────────────────────
 with st.sidebar:
@@ -388,9 +549,22 @@ if len(df) == 0:
     )
     st.stop()
 
-# Filter stats in sidebar
+# Filter stats + contact in sidebar
 with st.sidebar:
     st.markdown(f"**{len(df):,}** customers selected ({len(df)/len(df_all)*100:.1f}% of total)")
+    st.divider()
+    st.markdown(f"""
+    <div class="sidebar-contact">
+        <div class="sidebar-contact-name">{DEV_NAME}</div>
+        <div class="sidebar-contact-role">Data Analyst · Business Analytics · ML · Data Engineering</div>
+        <div class="sidebar-contact-links">
+            <a class="sidebar-link" href="mailto:{DEV_EMAIL}">📩 Email</a>
+            <a class="sidebar-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
+            <a class="sidebar-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
+            <a class="sidebar-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
 tabs = st.tabs([
@@ -400,6 +574,7 @@ tabs = st.tabs([
     "Customer Lookup",
     "Revenue & Products",
     "Action Plan",
+    "Contact Developer",
 ])
 
 # ════════════════════════════════════════════════════════════════════════════════
@@ -1276,3 +1451,158 @@ with tabs[5]:
             file_name="action_plan.csv",
             mime="text/csv",
         )
+
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 7 — CONTACT DEVELOPER
+# ════════════════════════════════════════════════════════════════════════════════
+with tabs[6]:
+    # Intro
+    st.markdown(f"""
+    <div style="max-width:720px;margin:0 auto 28px auto">
+        <h2 style="font-size:1.5rem;font-weight:700;color:#1a1a2e;margin-bottom:6px">
+            Get in Touch
+        </h2>
+        <p style="color:#4b5563;font-size:0.95rem;line-height:1.6;margin:0">
+            Interested in discussing this project, collaboration, or data analytics opportunities?
+            I'd love to hear from you. Use the form below or reach out directly through any of
+            the channels listed.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Contact cards row
+    cc1, cc2, cc3, cc4 = st.columns(4)
+    for col, icon, title, label, href in [
+        (cc1, "📩", "Email",     DEV_EMAIL,                   f"mailto:{DEV_EMAIL}"),
+        (cc2, "💼", "LinkedIn",  "linkedin.com/in/prajwalshekar", DEV_LINKEDIN),
+        (cc3, "🐙", "GitHub",    "PrajwalShekar22",             DEV_GITHUB),
+        (cc4, "🌐", "Portfolio", "datascienceportfol.io/pgorkhar", DEV_PORTFOLIO),
+    ]:
+        with col:
+            st.markdown(f"""
+            <div class="contact-card">
+                <div class="contact-card-icon">{icon}</div>
+                <div class="contact-card-title">{title}</div>
+                <a class="contact-card-link" href="{href}" target="_blank">{label}</a>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.divider()
+
+    # Contact form
+    st.markdown('<div class="section-heading">Send a Message</div>', unsafe_allow_html=True)
+    st.caption(
+        "Fill in the form below. On submit, you'll get a direct mailto link that opens your "
+        "email client with the message pre-filled — no third-party service required."
+    )
+
+    with st.form("contact_form", clear_on_submit=False):
+        form_col1, form_col2 = st.columns(2)
+        with form_col1:
+            contact_name = st.text_input("Your Name *")
+        with form_col2:
+            contact_email = st.text_input("Your Email *")
+
+        contact_subject = st.text_input("Subject *")
+        contact_message = st.text_area(
+            "Message * (max 150 words)",
+            height=150,
+            placeholder="Write your message here...",
+        )
+
+        # Live word count display (static — updates on rerun)
+        word_count = len(contact_message.split()) if contact_message.strip() else 0
+        wc_color = "#dc2626" if word_count > 150 else "#166534"
+        st.markdown(
+            f'<p style="font-size:0.8rem;color:{wc_color};margin-top:-8px">'
+            f'Message word count: <b>{word_count} / 150</b></p>',
+            unsafe_allow_html=True,
+        )
+
+        submitted = st.form_submit_button("Send Message", use_container_width=False)
+
+    # Validation & mailto generation (outside the form, triggered by submit)
+    if submitted:
+        errors = []
+        if not contact_name.strip():
+            errors.append("Name is required.")
+        if not contact_email.strip():
+            errors.append("Email is required.")
+        elif "@" not in contact_email or "." not in contact_email:
+            errors.append("Please enter a valid email address.")
+        if not contact_subject.strip():
+            errors.append("Subject is required.")
+        if not contact_message.strip():
+            errors.append("Message is required.")
+        elif word_count > 150:
+            errors.append(f"Message is {word_count} words — please keep it under 150 words.")
+
+        if errors:
+            for err in errors:
+                st.markdown(
+                    f'<div class="warning-box">⚠️ {err}</div>',
+                    unsafe_allow_html=True,
+                )
+        else:
+            import urllib.parse
+            subject_enc = urllib.parse.quote(contact_subject)
+            body_text   = (
+                f"Hi Prajwal,\n\nMy name is {contact_name} ({contact_email}).\n\n"
+                f"{contact_message}\n\nBest regards,\n{contact_name}"
+            )
+            body_enc = urllib.parse.quote(body_text)
+            mailto_url = f"mailto:{DEV_EMAIL}?subject={subject_enc}&body={body_enc}"
+
+            st.markdown(
+                f'<div class="success-box">'
+                f'✅ Thanks, <b>{contact_name}</b>! Your message is ready.<br><br>'
+                f'For now, please email me directly at '
+                f'<a href="mailto:{DEV_EMAIL}" style="color:#166534;font-weight:600">'
+                f'{DEV_EMAIL}</a> or connect with me on '
+                f'<a href="{DEV_LINKEDIN}" target="_blank" style="color:#166534;font-weight:600">'
+                f'LinkedIn</a>.<br><br>'
+                f'<a href="{mailto_url}" style="display:inline-block;background:#1d4ed8;'
+                f'color:white;padding:8px 20px;border-radius:6px;text-decoration:none;'
+                f'font-weight:600;font-size:0.88rem">📩 Open in Email Client</a>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+            # Also show read-only message preview
+            with st.expander("Preview your message"):
+                st.text(body_text)
+
+    # Note about Formspree (Option B hook for future)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.caption(
+        "Note: This form uses a client-side mailto link (no server required). "
+        "For automated email delivery, a Formspree or SMTP integration can be added at deployment time."
+    )
+
+
+# ════════════════════════════════════════════════════════════════════════════════
+# FOOTER
+# ════════════════════════════════════════════════════════════════════════════════
+st.markdown(f"""
+<div class="site-footer">
+    <div class="footer-name">{DEV_NAME}</div>
+    <div class="footer-links">
+        <a class="footer-link" href="{DEV_GITHUB}" target="_blank">GitHub</a>
+        <a class="footer-link" href="{DEV_LINKEDIN}" target="_blank">LinkedIn</a>
+        <a class="footer-link" href="{DEV_PORTFOLIO}" target="_blank">Portfolio</a>
+        <a class="footer-link" href="mailto:{DEV_EMAIL}">Email</a>
+    </div>
+    <div class="footer-note">
+        Built and maintained by {DEV_NAME} © 2026. Portfolio project for demonstration purposes.
+    </div>
+    <div class="footer-note">
+        All monetary values are shown in GBP (£), based on the original UK retailer transaction
+        dataset. Country filters customer location only.
+    </div>
+    <div class="footer-note">
+        This project is built for portfolio and educational demonstration.
+        Insights are based on the UCI Online Retail II public historical dataset.
+    </div>
+</div>
+""", unsafe_allow_html=True)
