@@ -1,0 +1,98 @@
+========================================================================
+  STEP 12C — DuckDB SQL Analytics Layer
+  Customer 360 Revenue Intelligence Platform
+========================================================================
+
+  Purpose:
+    This SQL analytics layer queries the Customer 360 Parquet datasets
+    using DuckDB — an in-process analytical SQL engine. It demonstrates
+    SQL-based business analytics over the full pipeline outputs and
+    produces reproducible CSV reports. All queries are portable to
+    BigQuery with minor dialect adjustments (e.g., APPROX_QUANTILES
+    for MEDIAN, backtick identifiers).
+
+  DuckDB:
+    DuckDB is a fast, embedded OLAP SQL engine that queries Parquet
+    files directly without loading them into a database server.
+    It is well-suited for local analytical projects and serves as a
+    lightweight alternative to BigQuery for portfolio demonstrations.
+
+  Input files:
+    customer_360.parquet      : /Users/prajwalshekar/Downloads/CUSTOMER 360 ANALYSIS/data/processed/customer_360.parquet
+    clean_transactions.parquet: /Users/prajwalshekar/Downloads/CUSTOMER 360 ANALYSIS/data/processed/clean_transactions.parquet
+
+  Input row counts:
+    customer_360       : 5,878 rows
+    clean_transactions : 779,425 rows
+
+  Revenue reconciliation:
+    customer_360 total revenue       : £17,374,804.27
+    clean_transactions total revenue : £17,374,804.27
+    Difference                       : £0.00  ✓
+
+  SQL files executed (10):
+    01_executive_kpis.sql  →  executive_kpis.csv
+    02_health_tier_summary.sql  →  health_tier_summary.csv
+    03_rfm_segment_summary.sql  →  rfm_segment_summary.csv
+    04_churn_risk_summary.sql  →  churn_risk_summary.csv
+    05_country_revenue.sql  →  country_revenue.csv
+    06_top_customers.sql  →  top_customers.csv
+    07_action_priority_summary.sql  →  action_priority_summary.csv
+    08_monthly_revenue.sql  →  monthly_revenue.csv
+    09_product_revenue.sql  →  product_revenue.csv
+    10_customer_value_tiers.sql  →  customer_value_tiers.csv
+
+  Output CSV files (10):
+    executive_kpis.csv                            1 rows  0.4 KB
+    health_tier_summary.csv                       5 rows  0.5 KB
+    rfm_segment_summary.csv                      10 rows  0.9 KB
+    churn_risk_summary.csv                        5 rows  0.4 KB
+    country_revenue.csv                          41 rows  2.1 KB
+    top_customers.csv                            50 rows  5.4 KB
+    action_priority_summary.csv                   5 rows  0.4 KB
+    monthly_revenue.csv                          25 rows  1.1 KB
+    product_revenue.csv                          50 rows  3.3 KB
+    customer_value_tiers.csv                      4 rows  0.4 KB
+
+------------------------------------------------------------------------
+  EXECUTIVE KPI SNAPSHOT (from SQL query 01)
+------------------------------------------------------------------------
+  Total customers               : 5,878
+  Total revenue                 : £17,374,804.27
+  Avg revenue per customer      : £2,955.90
+  Median revenue per customer   : £867.74
+  Total invoices                : 36,969
+  Avg invoices per customer     : 6.29
+  Model-scored customers        : 5,041
+  Not Scored customers          : 837
+  Retention targets             : 2,952
+  VIP customers                 : 1,511
+  Excellent + Healthy customers : 2,473
+  Excellent + Healthy revenue   : £15,449,182.12 (88.9%)
+  Critical + High Risk customers: 2,130
+  Critical + High Risk revenue  : £1,507,754.76
+
+------------------------------------------------------------------------
+  MIGRATION NOTE
+------------------------------------------------------------------------
+  This SQL layer runs locally on DuckDB over Parquet files.
+  To migrate to BigQuery:
+    1. Upload Parquet files to Google Cloud Storage.
+    2. Create external tables or load into BigQuery native tables.
+    3. Replace MEDIAN() with APPROX_QUANTILES(col, 2)[OFFSET(1)].
+    4. Replace window function syntax if needed (BigQuery is ANSI-compatible).
+    5. Replace file paths with project.dataset.table references.
+
+------------------------------------------------------------------------
+  VERIFICATION STATUS
+------------------------------------------------------------------------
+  All 10 SQL queries executed successfully.
+  All 10 CSV outputs written and non-empty.
+  executive_kpis has exactly 1 row.
+  top_customers has 50 rows (<= 50).
+  product_revenue has 50 rows (<= 50).
+  Revenue reconciliation: PASSED (£0.00 difference).
+
+========================================================================
+  STEP 12C SQL analytics layer completed successfully.
+========================================================================

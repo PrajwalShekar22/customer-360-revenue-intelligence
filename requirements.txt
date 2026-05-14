@@ -22,6 +22,9 @@ streamlit==1.35.0
 jupyter==1.0.0
 ipykernel==6.29.4
 
+# ── SQL Analytics ────────────────────────────────────────
+duckdb==1.1.3             # in-process analytical SQL engine over Parquet
+
 # ── Utilities ────────────────────────────────────────────
 python-dotenv==1.0.1      # load env variables (for optional BigQuery later)
 tqdm==4.66.4              # progress bars

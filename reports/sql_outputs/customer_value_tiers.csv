@@ -1,0 +1,5 @@
+customer_value_tier,customer_count,customer_pct,total_revenue,revenue_pct,avg_revenue_per_customer,avg_health_score,avg_churn_probability,retention_target_count,vip_count
+Top 10% Value,588,10.0,11107134.78,63.93,18889.68,90.9,0.1294,40.0,562.0
+High Value,1176,20.01,3665219.41,21.1,3116.68,77.58,0.2759,209.0,949.0
+Mid Value,2351,40.0,2209607.54,12.72,939.86,53.86,0.5496,1203.0,0.0
+Low Value,1763,29.99,392842.54,2.26,222.83,30.09,0.7627,1500.0,0.0

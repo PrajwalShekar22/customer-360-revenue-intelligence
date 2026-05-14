@@ -1,0 +1,51 @@
+customer_id,country,total_revenue,total_invoices,recency_days,rfm_segment,health_tier,customer_health_score,churn_probability,churn_risk_tier,action_priority,customer_value_tier,retention_target_flag,vip_flag
+18102,United Kingdom,580987.04,145,1,Champions,Excellent,99.48,0.017,Low Risk,Priority 4,Top 10% Value,0,1
+14646,Netherlands,528602.52,151,2,Champions,Excellent,99.98,0.0003,Low Risk,Priority 4,Top 10% Value,0,1
+14156,EIRE,313437.62,156,10,Champions,Excellent,99.98,0.0001,Low Risk,Priority 4,Top 10% Value,0,1
+14911,EIRE,291420.81,398,1,Champions,Excellent,99.99,0.0,Low Risk,Priority 4,Top 10% Value,0,1
+17450,United Kingdom,244784.25,51,8,Champions,Excellent,95.67,0.1421,Low Risk,Priority 4,Top 10% Value,0,1
+13694,United Kingdom,195640.69,143,4,Champions,Excellent,99.87,0.0032,Low Risk,Priority 4,Top 10% Value,0,1
+17511,United Kingdom,172132.87,60,3,Champions,Excellent,99.67,0.0057,Low Risk,Priority 4,Top 10% Value,0,1
+16446,United Kingdom,168472.5,2,1,Big Spenders,Healthy,71.85,0.5304,Medium Risk,Priority 4,Top 10% Value,0,1
+16684,United Kingdom,147142.77,55,4,Champions,Excellent,98.61,0.04,Low Risk,Priority 4,Top 10% Value,0,1
+12415,Australia,144458.37,28,24,Champions,Excellent,95.15,0.0558,Low Risk,Priority 4,Top 10% Value,0,1
+15061,United Kingdom,126389.02,127,4,Champions,Excellent,98.6,0.0449,Low Risk,Priority 4,Top 10% Value,0,1
+16029,United Kingdom,117763.62,107,39,Champions,Excellent,96.28,0.033,Low Risk,Priority 4,Top 10% Value,0,1
+17949,United Kingdom,117314.08,118,1,Champions,Excellent,96.44,0.1165,Low Risk,Priority 4,Top 10% Value,0,1
+15311,United Kingdom,114966.42,208,1,Champions,Excellent,99.95,0.0,Low Risk,Priority 4,Top 10% Value,0,1
+13089,United Kingdom,113416.91,203,3,Champions,Excellent,99.87,0.0025,Low Risk,Priority 4,Top 10% Value,0,1
+12931,United Kingdom,92347.34,57,22,Champions,Excellent,94.93,0.0735,Low Risk,Priority 4,Top 10% Value,0,1
+14298,United Kingdom,91194.49,82,8,Champions,Excellent,99.64,0.0083,Low Risk,Priority 4,Top 10% Value,0,1
+15769,United Kingdom,88612.52,46,7,Champions,Excellent,98.09,0.0482,Low Risk,Priority 4,Top 10% Value,0,1
+12346,United Kingdom,77556.46,12,326,Cannot Lose,Healthy,64.86,0.8233,Critical Risk,Priority 1,Top 10% Value,1,0
+13798,United Kingdom,75428.87,110,1,Champions,Excellent,99.77,0.0047,Low Risk,Priority 4,Top 10% Value,0,1
+15838,United Kingdom,73205.5,34,11,Champions,Excellent,97.6,0.0589,Low Risk,Priority 4,Top 10% Value,0,1
+17841,United Kingdom,68545.25,211,2,Champions,Excellent,99.92,0.0,Low Risk,Priority 4,Top 10% Value,0,1
+16754,United Kingdom,65500.07,29,372,Cannot Lose,Excellent,85.15,0.2241,Low Risk,Priority 2,Top 10% Value,1,0
+14096,United Kingdom,65164.79,17,4,Champions,Excellent,84.91,,Not Scored,Priority 4,Top 10% Value,0,1
+14088,United Kingdom,64036.8,16,10,Champions,Excellent,93.92,0.1754,Low Risk,Priority 4,Top 10% Value,0,1
+16422,United Kingdom,61920.87,109,17,Champions,Excellent,99.7,0.0064,Low Risk,Priority 4,Top 10% Value,0,1
+17389,United Kingdom,57215.33,61,1,Champions,Excellent,98.71,0.0356,Low Risk,Priority 4,Top 10% Value,0,1
+13081,United Kingdom,56838.37,28,12,Champions,Excellent,98.65,0.0171,Low Risk,Priority 4,Top 10% Value,0,1
+16013,United Kingdom,56078.44,84,4,Champions,Excellent,96.9,0.0984,Low Risk,Priority 4,Top 10% Value,0,1
+14680,United Kingdom,55688.5,58,25,Champions,Excellent,96.77,0.011,Low Risk,Priority 4,Top 10% Value,0,1
+13093,United Kingdom,54144.25,55,276,Cannot Lose,Excellent,90.83,0.0341,Low Risk,Priority 2,Top 10% Value,1,0
+12748,United Kingdom,53539.64,336,1,Champions,Excellent,99.86,0.0012,Low Risk,Priority 4,Top 10% Value,0,1
+17850,United Kingdom,51208.87,155,372,Cannot Lose,Healthy,64.53,0.912,Critical Risk,Priority 1,Top 10% Value,1,0
+13408,United Kingdom,50174.78,106,2,Champions,Excellent,99.18,0.0229,Low Risk,Priority 4,Top 10% Value,0,1
+13777,United Kingdom,49638.26,61,1,Champions,Excellent,98.35,0.0468,Low Risk,Priority 4,Top 10% Value,0,1
+17404,Sweden,47781.12,23,4,Champions,Excellent,92.64,0.1657,Low Risk,Priority 4,Top 10% Value,0,1
+13881,United Kingdom,45179.1,43,4,Champions,Excellent,97.87,0.0604,Low Risk,Priority 4,Top 10% Value,0,1
+15749,United Kingdom,44534.3,3,235,Big Spenders,Watchlist,54.26,0.9981,Critical Risk,Priority 1,Top 10% Value,1,1
+16705,United Kingdom,43515.05,42,1,Champions,Excellent,96.69,0.0908,Low Risk,Priority 4,Top 10% Value,0,1
+12471,Germany,39918.19,79,2,Champions,Excellent,98.19,0.0542,Low Risk,Priority 4,Top 10% Value,0,1
+15098,United Kingdom,39916.5,3,182,Big Spenders,Watchlist,59.12,1.0,Critical Risk,Priority 1,Top 10% Value,1,1
+15039,United Kingdom,39141.48,93,10,Champions,Excellent,99.76,0.0019,Low Risk,Priority 4,Top 10% Value,0,1
+14031,United Kingdom,39019.51,44,7,Champions,Excellent,98.65,0.0255,Low Risk,Priority 4,Top 10% Value,0,1
+17675,United Kingdom,37642.48,70,1,Champions,Excellent,99.3,0.015,Low Risk,Priority 4,Top 10% Value,0,1
+17381,United Kingdom,36398.65,38,9,Champions,Excellent,97.53,0.0712,Low Risk,Priority 4,Top 10% Value,0,1
+12921,United Kingdom,35233.24,74,9,Champions,Excellent,99.05,0.0246,Low Risk,Priority 4,Top 10% Value,0,1
+17677,United Kingdom,35058.46,54,2,Champions,Excellent,98.04,0.0545,Low Risk,Priority 4,Top 10% Value,0,1
+12678,France,34281.18,21,42,Champions,Excellent,92.82,0.0682,Low Risk,Priority 4,Top 10% Value,0,1
+13902,Denmark,34095.26,5,632,Cannot Lose,Healthy,78.87,0.2381,Low Risk,Priority 2,Top 10% Value,1,0
+13767,United Kingdom,33903.57,73,2,Champions,Excellent,99.1,0.0211,Low Risk,Priority 4,Top 10% Value,0,1

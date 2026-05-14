@@ -1,0 +1,2 @@
+total_customers,total_revenue,avg_revenue_per_customer,median_revenue_per_customer,total_invoices,avg_invoices_per_customer,retention_targets,vip_customers,model_scored_customers,not_scored_customers,excellent_healthy_customers,excellent_healthy_revenue,excellent_healthy_revenue_pct,critical_high_risk_customers,critical_high_risk_revenue
+5878,17374804.27,2955.9,867.74,36969.0,6.29,2952.0,1511.0,5041.0,837.0,2473.0,15449182.12,88.92,2130.0,1507754.76

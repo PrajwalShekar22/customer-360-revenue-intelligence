@@ -1,0 +1,6 @@
+action_priority,customer_count,customer_pct,total_revenue,revenue_pct,avg_revenue_per_customer,avg_churn_probability,retention_target_count,vip_count
+Priority 1,1842,31.34,864803.76,4.98,469.49,0.7893,1842.0,12.0
+Priority 2,616,10.48,1355477.31,7.8,2200.45,0.4511,616.0,25.0
+Priority 3,1436,24.43,1107674.79,6.38,771.36,0.5884,473.0,1.0
+Priority 4,1909,32.48,13937368.78,80.22,7300.87,0.219,21.0,1473.0
+Priority 5,75,1.28,109479.62,0.63,1459.73,0.3357,0.0,0.0
