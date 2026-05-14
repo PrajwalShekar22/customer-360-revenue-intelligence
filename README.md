@@ -3,6 +3,7 @@
 **Customer Segmentation · Churn Risk Prediction · Health Scoring · Revenue Action Planning**
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-DuckDB%201.1.3-F4C519?logo=duckdb&logoColor=black)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-FF4B4B?logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4.2-F7931E?logo=scikit-learn&logoColor=white)
 ![XGBoost](https://img.shields.io/badge/XGBoost-2.0.3-006600)
@@ -22,7 +23,7 @@ To run the dashboard locally, see [How to Run Locally](#how-to-run-locally).
 
 ## Executive Summary
 
-An end-to-end customer analytics platform that processes 1M+ online retail transactions, segments 5,878 customers using RFM scoring, predicts churn risk with a Logistic Regression model (ROC-AUC 0.8148), explains model drivers using SHAP, and delivers actionable retention and growth recommendations through a 7-tab interactive Streamlit dashboard.
+An end-to-end customer analytics platform that processes 1M+ online retail transactions, segments 5,878 customers using RFM scoring, predicts churn risk with a Logistic Regression model (ROC-AUC 0.8148), explains model drivers using SHAP, and delivers actionable retention and growth recommendations through a 7-tab interactive Streamlit dashboard. The project also includes a DuckDB SQL analytics layer over Parquet outputs to generate executive KPI, segment, churn-risk, product, country, and action-priority reporting tables.
 
 **Core Business Problem:**
 How can a business use customer transaction history to identify high-value customers, predict who is likely to churn, and prioritize retention and growth actions?
@@ -54,6 +55,8 @@ Champions represent 22.1% of customers but generate **68.3% of revenue (£11.86M
 | Retention targets flagged | 2,952 customers |
 | VIP customers | 1,511 customers |
 | Dashboard tabs | 7 |
+| SQL analytics layer | 10 DuckDB SQL queries · 10 validated reporting outputs |
+| Revenue reconciliation (SQL) | £0.00 difference across Python and SQL outputs |
 
 ---
 
@@ -112,6 +115,7 @@ This project addresses each question using a structured, reproducible customer a
 | Explainability | SHAP | 0.45.1 | Model driver interpretation |
 | Visualization | Plotly, matplotlib | 5.22, 3.8.4 | Interactive and static charts |
 | Dashboard | Streamlit | 1.35.0 | Interactive Customer 360 dashboard |
+| SQL Analytics | SQL, DuckDB | 1.1.3 | Local SQL analytics layer over Parquet files for executive KPI and reporting outputs |
 | Version Control | Git | — | Local commits and project history |
 
 **Future / optional extensions (not yet implemented):**
@@ -146,10 +150,14 @@ Customer Feature Engineering        →  customer_features.parquet (5,878 × 27)
           ↓
   Customer Health Score             →  customer_360.parquet (5,878 × 46)
           ↓
+DuckDB SQL Analytics Layer          →  reports/sql_outputs/ (10 CSV reporting tables)
+          ↓
   Streamlit Dashboard               →  app/streamlit_app.py (7 tabs)
 ```
 
 All processed outputs are stored as Parquet and CSV files for reproducible, fast local analytics and efficient dashboard loading.
+
+> The DuckDB SQL layer queries the processed Parquet datasets and generates reusable reporting tables under `reports/sql_outputs/`.
 
 ---
 
@@ -170,8 +178,19 @@ customer-360-revenue-intelligence/
 ├── notebooks/                        # Jupyter notebooks (exploratory)
 ├── reports/
 │   ├── figures/                      # Plotly HTML + SHAP PNG charts
-│   └── screenshots/                  # Dashboard screenshots (for README)
-├── sql/                              # SQL reference queries
+│   ├── screenshots/                  # Dashboard screenshots (for README)
+│   └── sql_outputs/                  # DuckDB SQL reporting outputs (10 CSVs)
+├── sql/
+│   ├── 01_executive_kpis.sql
+│   ├── 02_health_tier_summary.sql
+│   ├── 03_rfm_segment_summary.sql
+│   ├── 04_churn_risk_summary.sql
+│   ├── 05_country_revenue.sql
+│   ├── 06_top_customers.sql
+│   ├── 07_action_priority_summary.sql
+│   ├── 08_monthly_revenue.sql
+│   ├── 09_product_revenue.sql
+│   └── 10_customer_value_tiers.sql
 ├── src/
 │   ├── 01_load_and_inspect.py
 │   ├── 02_data_quality_audit.py
@@ -183,7 +202,8 @@ customer-360-revenue-intelligence/
 │   ├── 08_churn_labeling.py
 │   ├── 09_train_churn_model.py
 │   ├── 10_shap_explainability.py
-│   └── 11_customer_health_score.py
+│   ├── 11_customer_health_score.py
+│   └── 12_sql_analytics_layer.py
 ├── README.md
 ├── requirements.txt
 └── environment.yml
@@ -206,7 +226,8 @@ customer-360-revenue-intelligence/
 | 09 | `09_train_churn_model.py` | `churn_model.pkl`, metrics | LR / RF / XGBoost training, risk tiers |
 | 10 | `10_shap_explainability.py` | SHAP plots, importance CSV | Model driver interpretation |
 | 11 | `11_customer_health_score.py` | `customer_360.parquet` | Health score + action priorities |
-| 12 | `app/streamlit_app.py` | Dashboard at port 8501 | Interactive Customer 360 dashboard |
+| 12 | `12_sql_analytics_layer.py` | `reports/sql_outputs/*.csv` | Runs DuckDB SQL queries over Parquet datasets to produce executive KPI, segment, churn-risk, product, country, monthly revenue, and action-priority reporting tables |
+| 13 | `app/streamlit_app.py` | Dashboard at port 8501 | Interactive Customer 360 dashboard |
 
 ---
 
@@ -416,6 +437,59 @@ The Customer 360 table merges all upstream outputs into one customer-level recor
 
 ---
 
+## SQL Analytics Layer
+
+A DuckDB SQL analytics layer was added to demonstrate SQL-based analytics and produce reusable business reporting outputs from the processed Parquet datasets.
+
+**Why SQL was added:**
+To validate pipeline outputs through an independent query path and create reproducible business reporting tables that can later be migrated to BigQuery.
+
+**What DuckDB does:**
+DuckDB runs analytical SQL directly over local Parquet datasets without needing a database server. It reads `customer_360.parquet` and `clean_transactions.parquet` as views and executes standard ANSI SQL with minor DuckDB-specific extensions (e.g., `MEDIAN()`).
+
+**Inputs:**
+- `data/processed/customer_360.parquet` — 5,878 customers × 46 columns
+- `data/processed/clean_transactions.parquet` — 779,425 transactions × 13 columns
+
+**SQL query coverage:** executive KPIs · health tier summary · RFM segment summary · churn risk summary · country revenue · top customers · action priority summary · monthly revenue · product revenue · customer value tiers
+
+**Outputs:** `reports/sql_outputs/` — 10 validated CSV files + `sql_analytics_summary.txt`
+
+**Revenue validation:** £17,374,804.27 (SQL) vs £17,374,804.27 (Python) — **£0.00 difference**
+
+**Business value:** The SQL layer creates business-ready reporting tables that can later be migrated to BigQuery by uploading Parquet files to Google Cloud Storage and replacing `MEDIAN()` with `APPROX_QUANTILES(col, 2)[OFFSET(1)]`.
+
+| SQL File | Output CSV | Business Purpose |
+|---|---|---|
+| `sql/01_executive_kpis.sql` | `executive_kpis.csv` | High-level executive metrics |
+| `sql/02_health_tier_summary.sql` | `health_tier_summary.csv` | Customer health tier performance |
+| `sql/03_rfm_segment_summary.sql` | `rfm_segment_summary.csv` | RFM segment revenue and retention view |
+| `sql/04_churn_risk_summary.sql` | `churn_risk_summary.csv` | Churn risk distribution and revenue exposure |
+| `sql/05_country_revenue.sql` | `country_revenue.csv` | Country-level revenue concentration |
+| `sql/06_top_customers.sql` | `top_customers.csv` | Highest-value customer list |
+| `sql/07_action_priority_summary.sql` | `action_priority_summary.csv` | Retention and growth action planning |
+| `sql/08_monthly_revenue.sql` | `monthly_revenue.csv` | Monthly revenue and active customer trend |
+| `sql/09_product_revenue.sql` | `product_revenue.csv` | Top product revenue contribution |
+| `sql/10_customer_value_tiers.sql` | `customer_value_tiers.csv` | Customer value tier summary |
+
+**Executive KPI snapshot (from SQL query 01):**
+
+| Metric | Value |
+|---|---|
+| Total customers | 5,878 |
+| Total revenue | £17,374,804.27 |
+| Avg revenue per customer | £2,955.90 |
+| Median revenue per customer | £867.74 |
+| Model-scored customers | 5,041 |
+| Retention targets | 2,952 |
+| VIP customers | 1,511 |
+| Excellent + Healthy customers | 2,473 (88.9% of revenue) |
+| Critical + High Risk customers | 2,130 (£1,507,755 revenue at stake) |
+
+**Runner script:** `src/12_sql_analytics_layer.py`
+
+---
+
 ## Streamlit Dashboard
 
 **File:** `app/streamlit_app.py`
@@ -435,6 +509,8 @@ streamlit run app/streamlit_app.py
 | About Project | Pipeline summary, connect links, dataset notes, disclaimer |
 
 **Features:** 8 sidebar filters · Live KPI cards · 20+ Plotly charts · 4 CSV exports · Customer radar chart · Not Scored handling · GBP (£) currency throughout
+
+> The dashboard primarily loads processed Parquet files (`customer_360.parquet`, `clean_transactions.parquet`). The SQL layer provides additional validated reporting outputs under `reports/sql_outputs/` for independent business reporting and future BigQuery migration.
 
 ---
 
@@ -492,6 +568,7 @@ python src/08_churn_labeling.py
 python src/09_train_churn_model.py
 python src/10_shap_explainability.py
 python src/11_customer_health_score.py
+python src/12_sql_analytics_layer.py
 ```
 
 ### 5. Launch the dashboard
@@ -532,8 +609,8 @@ Opens at `http://localhost:8501`.
 | Improvement | Description |
 |---|---|
 | Streamlit Cloud deployment | Publish dashboard with a public URL |
-| BigQuery warehouse | Move processed data to BigQuery for scalable SQL analytics |
-| Looker Studio dashboard | Executive-facing report on top of BigQuery |
+| Migrate DuckDB SQL layer to BigQuery | Upload Parquet files to GCS, create external tables, and port the 10 SQL queries to BigQuery SQL (replace `MEDIAN()` with `APPROX_QUANTILES`) |
+| Looker Studio executive dashboard | Connect BigQuery outputs to Looker Studio for a shareable executive report |
 | Docker containerisation | Package pipeline and dashboard as a portable Docker image |
 | GitHub Actions CI | Automate data validation and pipeline checks on every push |
 | Model monitoring | Add drift detection and retraining triggers |

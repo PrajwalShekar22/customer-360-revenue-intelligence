@@ -26,7 +26,7 @@ DATASET
 
 TECH STACK
   Python 3.11 · pandas 2.2.2 · NumPy 1.26.4 · scikit-learn 1.4.2 · XGBoost 2.0.3
-  SHAP 0.45.1 · Plotly 5.22 · Streamlit 1.35.0 · Parquet/CSV · Git
+  SHAP 0.45.1 · Plotly 5.22 · Streamlit 1.35.0 · SQL · DuckDB 1.1.3 · Parquet/CSV · Git
 
 KEY METRICS
   Total revenue             : £17,374,804.27
@@ -84,6 +84,15 @@ ACTION PRIORITY DISTRIBUTION
   Priority 3 — Growth Opportunity: 1,436 customers · £1.11M revenue
   Priority 4 — Loyalty / Upsell : 1,909 customers · £13.94M revenue
   Priority 5 — Low Cost Nurture :    75 customers · £109K revenue
+
+SQL ANALYTICS LAYER (DuckDB)
+  DuckDB SQL layer added as Step 12C.
+  Engine       : DuckDB 1.1.3 — in-process analytical SQL over Parquet files
+  SQL files    : 10 (sql/01_executive_kpis.sql … sql/10_customer_value_tiers.sql)
+  Outputs      : 10 CSV reporting tables in reports/sql_outputs/
+  Reconciliation: £17,374,804.27 vs £17,374,804.27 — £0.00 difference (PASSED)
+  Purpose      : SQL analytics demonstration + future BigQuery migration path
+  Runner       : src/12_sql_analytics_layer.py
 
 DASHBOARD TABS (7)
   1. Executive Overview
