@@ -11,15 +11,18 @@
 ![Plotly](https://img.shields.io/badge/Plotly-5.22-3F4F75?logo=plotly&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Local%20Complete%20%7C%20Deployment%20Pending-yellow)
 
+**Live App:** [Streamlit Dashboard](https://customer-360-revenue-intelligence-4r8ryklwgjkwcdhrpzmf3v.streamlit.app)  
+**GitHub Repo:** [customer-360-revenue-intelligence](https://github.com/PrajwalShekar22/customer-360-revenue-intelligence)
+
+
 ---
 
 ## Live Demo
 
-> Deployment pending. A Streamlit Community Cloud link will be added after GitHub publication.
+[Open the Streamlit Dashboard](https://customer-360-revenue-intelligence-4r8ryklwgjkwcdhrpzmf3v.streamlit.app)
 
-To run the dashboard locally, see [How to Run Locally](#how-to-run-locally).
+The dashboard is deployed on Streamlit Community Cloud and provides an interactive Customer 360 view for customer segmentation, churn risk, health scoring, revenue insights, SQL-backed reporting outputs, and action planning.
 
----
 
 ## Executive Summary
 
