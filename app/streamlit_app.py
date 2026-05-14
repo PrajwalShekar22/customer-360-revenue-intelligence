@@ -238,12 +238,32 @@ st.markdown(
     '<div class="sub-header">Customer Segmentation · Churn Risk · Health Scoring · Revenue Action Planning</div>',
     unsafe_allow_html=True,
 )
+st.markdown(
+    '<div style="font-size:0.8rem;color:#6b7280;margin-bottom:0.5rem">'
+    'All monetary values are in <b>GBP (£)</b>. '
+    'Data source: UCI Online Retail II dataset (UK-based retailer, 2009–2011). '
+    'Country filter applies to customer location only — currency does not change.'
+    '</div>',
+    unsafe_allow_html=True,
+)
 st.divider()
 
 # ── Sidebar filters ───────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### Filters")
     st.caption("Leave a filter empty to include all options. Expand to narrow your selection.")
+
+    st.markdown(
+        """
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;
+                    padding:9px 12px;margin:6px 0 10px 0;font-size:0.78rem;color:#166534;
+                    line-height:1.45">
+        <b>Currency note:</b> All monetary values are shown in <b>GBP (£)</b>, based on the
+        original UK retailer transaction dataset. Country filters customer location only.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     all_health  = sorted(df_all["health_tier"].dropna().unique().tolist())
     all_rfm     = sorted(df_all["rfm_segment"].dropna().unique().tolist())
