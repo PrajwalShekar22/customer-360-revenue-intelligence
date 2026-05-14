@@ -9,7 +9,7 @@
 ![XGBoost](https://img.shields.io/badge/XGBoost-2.0.3-006600)
 ![SHAP](https://img.shields.io/badge/SHAP-0.45.1-8A2BE2)
 ![Plotly](https://img.shields.io/badge/Plotly-5.22-3F4F75?logo=plotly&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Local%20Complete%20%7C%20Deployment%20Pending-yellow)
+![Status](https://img.shields.io/badge/Status-Deployed%20on%20Streamlit%20Cloud-brightgreen)
 
 **Live App:** [Streamlit Dashboard](https://customer-360-revenue-intelligence-4r8ryklwgjkwcdhrpzmf3v.streamlit.app)  
 **GitHub Repo:** [customer-360-revenue-intelligence](https://github.com/PrajwalShekar22/customer-360-revenue-intelligence)
