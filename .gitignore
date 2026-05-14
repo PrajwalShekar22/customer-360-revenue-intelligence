@@ -33,9 +33,13 @@ data/raw/*.feather
 data/interim/*.csv
 data/interim/*.parquet
 data/interim/*.feather
+# Ignore all processed outputs by default…
 data/processed/*.csv
 data/processed/*.parquet
 data/processed/*.feather
+# …except the two Parquet files required by the Streamlit app
+!data/processed/customer_360.parquet
+!data/processed/clean_transactions.parquet
 
 # ── Model artifacts (binaries excluded; JSON metadata tracked) ───────────────
 models/*.pkl
