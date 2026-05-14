@@ -6,7 +6,7 @@ Developer: Prajwal Gorkhar Chandrashekar
 Role: Data Analyst | Business Analytics | Machine Learning | Data Engineering
 GitHub: https://github.com/PrajwalShekar22
 LinkedIn: https://www.linkedin.com/in/prajwalshekar
-Portfolio: https://datascienceportfol.io/pgorkhar
+Portfolio: https://www.datascienceportfol.io/pgc
 Email: prajwalshekar22@gmail.com
 """
 
@@ -15,7 +15,7 @@ DEV_NAME      = "Prajwal Gorkhar Chandrashekar"
 DEV_ROLE      = "Data Analyst | Business Analytics | Machine Learning | Data Engineering"
 DEV_GITHUB    = "https://github.com/PrajwalShekar22"
 DEV_LINKEDIN  = "https://www.linkedin.com/in/prajwalshekar"
-DEV_PORTFOLIO = "https://datascienceportfol.io/pgorkhar"
+DEV_PORTFOLIO = "https://www.datascienceportfol.io/pgc"
 DEV_EMAIL     = "prajwalshekar22@gmail.com"
 
 import pandas as pd
@@ -1476,7 +1476,7 @@ with tabs[6]:
         (cc1, "📩", "Email",     DEV_EMAIL,                   f"mailto:{DEV_EMAIL}"),
         (cc2, "💼", "LinkedIn",  "linkedin.com/in/prajwalshekar", DEV_LINKEDIN),
         (cc3, "🐙", "GitHub",    "PrajwalShekar22",             DEV_GITHUB),
-        (cc4, "🌐", "Portfolio", "datascienceportfol.io/pgorkhar", DEV_PORTFOLIO),
+        (cc4, "🌐", "Portfolio", "datascienceportfol.io/pgc", DEV_PORTFOLIO),
     ]:
         with col:
             st.markdown(f"""
