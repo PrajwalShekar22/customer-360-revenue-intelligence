@@ -519,16 +519,27 @@ streamlit run app/streamlit_app.py
 
 ## Dashboard Screenshots
 
-Screenshots will be added before deployment.
-
+### Executive Overview
 ![Executive Overview](reports/screenshots/executive_overview.png)
+
+### Customer Segments
 ![Customer Segments](reports/screenshots/customer_segments.png)
-![Churn Risk](reports/screenshots/churn_risk.png)
+
+### Churn Risk & Retention
+![Churn Risk & Retention](reports/screenshots/churn_risk_retention.png)
+
+### Customer Lookup
 ![Customer Lookup](reports/screenshots/customer_lookup.png)
+
+### Revenue & Products
+![Revenue & Products](reports/screenshots/revenue_products.png)
+
+### Action Plan
 ![Action Plan](reports/screenshots/action_plan.png)
+
+### About Project
 ![About Project](reports/screenshots/about_project.png)
 
----
 
 ## How to Run Locally
 

@@ -64,7 +64,6 @@ reports/figures/*.jpg
 reports/figures/*.html
 
 # ── Screenshots (add manually with git add -f if needed) ─
-reports/screenshots/*.png
 reports/screenshots/*.jpg
 
 # ── Loose data files dropped in project root ─────────────
@@ -76,3 +75,10 @@ reports/screenshots/*.jpg
 secrets.json
 credentials.json
 service_account*.json
+
+
+# Keep README dashboard screenshots
+!reports/screenshots/
+!reports/screenshots/*.png
+!reports/screenshots/README_screenshot_checklist.txt
+
